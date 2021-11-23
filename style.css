@@ -14,10 +14,22 @@ html, body {
 box-sizing: border-box;
 }
 
-.header {
+.header{
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start; 
+    justify-content: space-between; 
 }
+footer{
+    font-size: x-small;
+    text-align: right;
+}
+body{
+    display: flex;
+    flex-direction: column;
+} 
+main {
+    flex-grow: 1;
+}
+
 
