@@ -1,3 +1,23 @@
 .bouton1{
     background-color:#fb5043;
 }
+
+/* make the page make sense */
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+box-sizing: border-box;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+}
+
