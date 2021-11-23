@@ -25,12 +25,13 @@ body, html{
     display: flex;
     background-color: thistle;
     justify-content: space-around;
-  }
+}
+
 .item {
   opacity: 1;
-  height: 7rem;
+  height: 8rem;
   cursor: pointer;
-  background-color:red;  
+  background-color:#7e392a;  
   border: 0.01rem;
   border-radius: 0.8rem;
   margin: 0.5rem;
