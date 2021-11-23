@@ -1,0 +1,34 @@
+body, html{
+    padding: 0;
+    margin: 0;
+    background-color: white;
+}
+
+
+
+
+.container {
+    display: flex;
+    background-color: thistle;
+    justify-content: space-around;
+  }
+.item {
+  opacity: 1;
+  height: 7rem;
+  cursor: pointer;
+  background-color:red;  
+  border: 0.01rem;
+  border-radius: 0.8rem;
+  margin: 0.5rem;
+  padding: 0.8rem;
+  color:whitesmoke;
+  font-size: 0.20rem;
+  text-align: center;
+
+}
+.container {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+ 
+
