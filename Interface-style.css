@@ -1,14 +1,50 @@
 
 /* make the page make sense */
 html, body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 * {
 box-sizing: border-box;
 }
+
+
+body, html{
+    padding: 0;
+    margin: 0;
+    background-color: white;
+}
+
+
+
+
+.container {
+    display: flex;
+    background-color: thistle;
+    justify-content: space-around;
+}
+
+.item {
+  opacity: 1;
+  height: 8rem;
+  cursor: pointer;
+  background-color:#7e392a;  
+  border: 0.01rem;
+  border-radius: 0.8rem;
+  margin: 0.5rem;
+  padding: 0.8rem;
+  color:whitesmoke;
+  font-size: 0.20rem;
+  text-align: center;
+
+}
+.container {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+ 
 
 
