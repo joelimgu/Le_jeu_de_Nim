@@ -33,7 +33,10 @@ main {
 
 .boutons{
     height: 10vh;
-    padding-left:25%;
+    display : flex;
+    padding-right: 15%;
+    padding-left: 15%;
+    justify-content : space-around;
 }
 
 .bouton1{
