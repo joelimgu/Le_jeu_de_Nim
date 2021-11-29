@@ -63,12 +63,15 @@ input:invalid {
   color:whitesmoke;
   font-size: 0.20rem;
   text-align: center;
-
 }
+
+.item img {
+    max-width: 20%;
+}
+
 .container {
     flex-direction: row;
     flex-wrap: wrap;
 }
- 
 
 
