@@ -6,6 +6,7 @@ html, body {
     margin: 0;
     padding: 0;
     background-image: url(./Assets/Images/background.png);
+    font-family:monospace;
 }
 
 * {
@@ -24,19 +25,6 @@ body{
     align-items: center;
     justify-content: space-between; 
 }
-<<<<<<< HEAD
-footer{
-    font-size: x-small;
-    text-align: right;
-    flex-shrink: 1;
-}
-body{
-    display: flex;
-    flex-direction: column;
-} 
-=======
-
->>>>>>> 691f50ceb2bf0301654c410bf916fc7bec83c711
 main {
     height: 80vh;
 }
