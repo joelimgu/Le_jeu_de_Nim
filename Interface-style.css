@@ -27,12 +27,24 @@ main{
   align-items: center;
   justify-content: space-between; 
 }
+
 footer{
   font-size: small;
   text-align: right;
   height: 10vh;
 }
-
+.form{
+  display: flex;
+  flex-direction: row ;
+  justify-content: space-around;
+}
+form{
+  display: flex;
+  flex-direction: column;
+}
+input:invalid {
+  border: 3px solid red;
+}
 
 .container {
     display: flex;
