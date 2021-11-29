@@ -20,6 +20,7 @@ box-sizing: border-box;
 footer{
     font-size: x-small;
     text-align: right;
+    flex-shrink: 1;
 }
 body{
     display: flex;
