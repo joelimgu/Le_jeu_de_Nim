@@ -30,8 +30,7 @@ body, html{
 .item {
   opacity: 1;
   height: 8rem;
-  cursor: pointer;
-  background-color:#7e392a;  
+  cursor: pointer;  
   border: 0.01rem;
   border-radius: 0.8rem;
   margin: 0.5rem;
