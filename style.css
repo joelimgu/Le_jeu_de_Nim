@@ -2,7 +2,7 @@
 /* make the page make sense */
 html, body {
     width: 100vw;
-    height: 100vh;
+    max-height: 100vh;
     margin: 0;
     padding: 0;
     background-image: url(./Assets/Images/background.png);
@@ -12,12 +12,21 @@ html, body {
 box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "Moutarde" ;
+    src: url(./Assets/Police/Moutarde\ DEMO.otf);
+}
+
 body{
     display: flex;
     flex-direction: column;
 } 
 
 .header{
+    font-family: Moutarde;
+    font-size:2vh;
+    color:#D3D3D3;
+    background-color: #2E8B57;
     height: 10vh;
     width: 100%;
     display: flex;
@@ -30,25 +39,50 @@ main {
 }
 
 footer{
+    font-family: Moutarde;
+    color:#D3D3D3;
     height: 10vh;
-    font-size: small;
     text-align: right;
+    background-color: #4b3621;
 }
 
 .boutons{
-    height: 15%;
+    height: 12%;
     display : flex;
     padding-right: 15%;
     padding-left: 15%;
     justify-content : space-around;
 }
 
-.texte{
+.box_texte{
+    padding-left: 20%;
+    padding-right:20%;
+    display: flex;
+    align-items: center;
     height:80%
 }
 
+.texte{
+    font-size: 2rem;
+    font-family: Moutarde;
+    color:#D3D3D3;
+    padding-top:5% ;
+    padding-bottom: 5%;
+    flex-grow: 1;
+    background-color: #467e49;
+    border-radius: 5%;
+    padding-left:15%;
+    padding-right:15%;
+    box-shadow: 10px 5px 5px black;
+}
+
+
 .bouton1{
+    font-family: Moutarde;
+    color:#D3D3D3;
+    font-size:xx-large;
     background-color:#fb5043;
+    border-color:black;
     border-radius: 5%;
     width: 20%;
     height: 100%;
@@ -56,9 +90,29 @@ footer{
 }
 
 .bouton2{
+    font-family: Moutarde;
+    color:#D3D3D3;
+    font-size:10rem;
     background-color:#596eff;
+    border-color:black;
     border-radius: 5%;
     width: 20%;
     height: 100%;
     font-size:1rem;
+}
+
+@media screen and (max-width:1280px) and (max-height: 1280px){
+    .texte{
+        font-size: 1rem;
+        font-family: Moutarde;
+        color:#D3D3D3;
+        padding-top:5% ;
+        padding-bottom: 5%;
+        flex-grow: 1;
+        background-color: #467e49;
+        border-radius: 5%;
+        padding-left:15%;
+        padding-right:15%;
+        box-shadow: 10px 5px 5px black;
+    }
 }
