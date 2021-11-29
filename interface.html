@@ -20,9 +20,34 @@
         <hr />
     </header>
     <main>
-        <section>
-            <H1>Interface</H1>
-        </section>
+        <h2>Paramètres</h2>
+        <div class="form" >
+            <form id="settings">
+                
+
+                <div><input type="text" id="columnNumber" name="columnNumber" pattern="[0-9]+" value="5"><button>Ajouter une ligne</button></div>
+                <div>
+                    <label for="difficulte">Choisir la difficulté: </label>
+                    <select id="difficulte" name="diff">
+                        <option value="facile">Facile</option>
+                        <option value="intermediaire">Inermédiaire</option>
+                        <option value="difficile">Difficile</option>
+                        <option value="impossible">Impossible</option>
+                    </select>
+                </div>
+                <div><button type="submit">Confirmer</button><button type="reset">Reinitialiser</button></div>
+            </form>
+            <div id="array">
+                <table border="1" id="disparray">
+                    <tr>
+                            <th>Line</th>
+                            <th>Column</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <hr />
+        <H2>Interface</H2>
         <div id="playingfield">
             <div class="container" id="line-1">
                 <div class="item"></div>
@@ -46,6 +71,7 @@
                 <div class="item"></div>
             </div>    
         </div>
+        
     </main>
     <footer>
         <hr />
