@@ -41,6 +41,8 @@ footer{
 form{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 input:invalid {
   border: 3px solid red;
@@ -71,5 +73,4 @@ input:invalid {
     flex-wrap: wrap;
 }
  
-
 
