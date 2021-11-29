@@ -5,38 +5,46 @@ html, body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    background-image: url(./Assets/Images/background.png);
 }
 
 * {
 box-sizing: border-box;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+} 
+
 .header{
+    height: 10vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between; 
 }
+
+main {
+    height: 80vh;
+}
+
 footer{
-    font-size: x-small;
+    height: 10vh;
+    font-size: small;
     text-align: right;
 }
-body{
-    display: flex;
-    flex-direction: column;
-} 
-main {
-    flex-grow: 1;
-    
-}
-
 
 .boutons{
-    height: 10vh;
+    height: 15%;
     display : flex;
     padding-right: 15%;
     padding-left: 15%;
     justify-content : space-around;
+}
+
+.texte{
+    height:80%
 }
 
 .bouton1{
