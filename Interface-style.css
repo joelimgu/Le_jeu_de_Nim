@@ -17,9 +17,34 @@ body, html{
     margin: 0;
     background-color: white;
 }
+main{
+  height: 80vh;
+}
+.header{
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
 
-
-
+footer{
+  font-size: small;
+  text-align: right;
+  height: 10vh;
+}
+.form{
+  display: flex;
+  flex-direction: row ;
+  justify-content: space-around;
+}
+form{
+  display: flex;
+  flex-direction: column;
+}
+input:invalid {
+  border: 3px solid red;
+}
 
 .container {
     display: flex;
@@ -30,8 +55,7 @@ body, html{
 .item {
   opacity: 1;
   height: 8rem;
-  cursor: pointer;
-  background-color:#7e392a;  
+  cursor: pointer;  
   border: 0.01rem;
   border-radius: 0.8rem;
   margin: 0.5rem;

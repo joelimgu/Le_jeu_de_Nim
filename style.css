@@ -6,6 +6,7 @@ html, body {
     margin: 0;
     padding: 0;
     background-image: url(./Assets/Images/background.png);
+    font-family:monospace;
 }
 
 * {
@@ -33,10 +34,10 @@ body{
     align-items: center;
     justify-content: space-between; 
 }
-
 main {
     height: 80vh;
 }
+
 
 footer{
     font-family: Moutarde;
