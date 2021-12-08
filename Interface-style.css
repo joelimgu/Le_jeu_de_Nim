@@ -5,12 +5,17 @@ html, body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  background-image: url(./Assets/Images/background.png);
 }
 
 * {
 box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "Moutarde" ;
+  src: url(./Assets/Police/Moutarde\ DEMO.otf);
+}
 
 body, html{
     padding: 0;
@@ -18,20 +23,39 @@ body, html{
     background-color: white;
 }
 main{
-  height: 80vh;
+  height: 85vh;
 }
+
+img{
+  width: 20%;
+}
+
+.centrer{
+  width: 20%;
+}
+
+h2{
+  margin-top:0;
+  margin-left: 10%;
+}
+
 .header{
-  width: 100%;
+  font-family: Moutarde;
+  font-size:2vh;
+  color:#D3D3D3;
+  background-color: #2E8B57;
   height: 10vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between; 
 }
 
 footer{
-  font-size: small;
-  text-align: right;
-  height: 10vh;
+  font-family: Moutarde;
+  color:#D3D3D3;
+  height: 5vh;
+  background-color: #4b3621;
 }
 .form{
   display: flex;
@@ -48,10 +72,25 @@ input:invalid {
   border: 3px solid red;
 }
 
+.interface{
+  padding-top: 1%;
+  padding-bottom: 1%;
+
+}
+
+
+#playingfield{
+  border-radius: 30px;
+  margin-left:10%;
+  margin-right:10%;
+  background-color: rgba(27.5, 49.4, 28.6, 0.3);
+}
+
 .container {
-    display: flex;
-    background-color: thistle;
-    justify-content: space-around;
+
+  display: flex;
+  justify-content: space-around;
+
 }
 
 .item {
@@ -69,10 +108,11 @@ input:invalid {
 
 .item img {
     max-width: 20%;
+    min-width: 5%;
 }
 
-.container {
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+/*.container {*/
+/*    flex-direction: row;*/
+/*    flex-wrap: wrap;*/
+/*}*/
 

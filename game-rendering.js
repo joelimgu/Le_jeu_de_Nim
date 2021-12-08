@@ -2,18 +2,40 @@
 
 const game = [1,3,  5]
 const playerMoves = Array(game.length).fill(0)
+const gameHistory = {
+    turn: 0,
+    player1Moves: [[...playerMoves]],
+    player2Moves: [[...playerMoves]]
+}
+let playerPlaying = "player1Moves";
 
-function removeElementEvent(event) {
-    const id = event.target.parentElement.id
-    const lineID = id[id.length-1]
-    console.log(lineID)
-    playerMoves[lineID] += 1
-    event.target.remove()
+function startTurn() {
+    gameHistory.turn += 1;
+    gameHistory.player1Moves.push([...playerMoves])
+    gameHistory.player2Moves.push([...playerMoves])
 }
 
-function createStick() {
+function removeElementEvent(event) {
+    let id;
+    // we handle the cases of pressing the image or the container around it
+    if ( event.target.nodeName === "IMG" ) {
+        console.log(event.target.parentElement.className)
+        id = event.target.parentElement.className
+        event.target.parentElement.remove()
+    } else {
+        console.log(event.target.className)
+        id = event.target.className
+        event.target.remove()
+    }
+    const lineID = id[id.length-1]
+    gameHistory[playerPlaying][gameHistory.turn][lineID] += 1;
+    startTurn()
+    console.log(gameHistory)
+}
+
+function createStick(ln) {
     const li = document.createElement('div')
-    li.className = "item"
+    li.className = `item line_${ln}`
     li.setAttribute("onclick","removeElementEvent(event)")
     const img = document.createElement('img')
     img.src = "./stick.png"
@@ -32,7 +54,7 @@ function createLine(id) {
 function addChild(ln) {
     const lines = document.getElementById("playingfield");
     if (!Array.from(lines.children)[ln]) lines.appendChild(createLine(ln));
-    Array.from(lines.children)[ln].appendChild(createStick())
+    Array.from(lines.children)[ln].appendChild(createStick(ln))
 }
 
 function popChild(ln, player, playerMoves, game) {
@@ -52,15 +74,4 @@ function createGame(game) {
     })
 }
 
-// const elements = document.getElementsByClassName("item")
-// for ( const el of elements) {
-//     el.onclick = (event) => {
-//         console.log(this) }
-// }
-
-// addChild(0)
-// popChild(0)
 createGame(game)
-
-
-// {lineNumber: 5, deletedElements: 3}
