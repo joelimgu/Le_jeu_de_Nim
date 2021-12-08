@@ -6,10 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Interface-style.css">
-    <script type="type/javascript" src="windowmanager.js">/</script>
+    
     <title>Jeu de Nim</title>
 </head>
-
 
 <body>
     <header>
@@ -24,10 +23,10 @@
         <section class="set">
             <h2>Paramètres</h2>
             <div class="form" >
-                <form id="settings">
+                <div id="settings">
                     
 
-                    <div><input type="text" id="columnNumber" name="columnNumber" pattern="[0-9]+" value="5"><button>Ajouter une ligne</button></div>
+                    <div><input type="text" id="columnNumber" name="columnNumber" pattern="[0-9]|10" value="5"><button onclick="addRow()">Ajouter une ligne</button></div>
                     <div>
                         <label for="difficulte">Choisir la difficulté: </label>
                         <select id="difficulte" name="diff">
@@ -37,15 +36,23 @@
                             <option value="impossible">Impossible</option>
                         </select>
                     </div>
-                    <div><button type="submit" onclick="game()">Confirmer</button><button type="reset">Reinitialiser</button></div>
-                </form>
+                    <div><button type="submit" onclick="play()">Confirmer</button><button type="reset">Reinitialiser</button></div>
+                </div>
                 <div id="array">
                     <table border="1" id="disparray">
-                        <tr>
+                        <thead>
+                            <tr>
                                 <th>Line</th>
-                                <th>Column</th>
-                                
-                        </tr>
+                                <th>Column</th> 
+                            </tr>
+                        </thead>
+                        <tbody id="tablebody">
+                            <tr>
+                                <td>n°ligne</td>
+                                <td>n° colonne</td>
+                            </tr>
+                        </tbody>
+                        
                     </table>
                 </div>
             </div>
@@ -86,5 +93,7 @@
       
 </body>
 <script src="game-rendering.js"></script>
+
+<script src="windowmanager.js"></script>
 </html>
 

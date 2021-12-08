@@ -1,6 +1,6 @@
 
 
-const game = [1,3,5]
+const game = [1,3,  5]
 const playerMoves = Array(game.length).fill(0)
 
 function removeElementEvent(event) {
