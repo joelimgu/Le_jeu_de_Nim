@@ -1,7 +1,7 @@
 
 
 let game = [1,3,10]
-for ( let i = 0; i<100; i++) game.push(5);
+// for ( let i = 0; i<100; i++) game.push(5);
 const playerMoves = Array(game.length).fill(0)
 const gameHistory = {
     turn: 0,
@@ -11,7 +11,13 @@ const gameHistory = {
 let playerPlaying = "player1Moves";
 
 function startTurn() {
-    if ( playerPlaying === "player1Moves" ) playerPlaying = "player2Moves"
+    if ( playerPlaying === "player1Moves" ) {
+        playerPlaying = "player2Moves"
+        gameHistory.player2Moves.push([])
+        gameHistory.player1Moves.push([])
+    } else {
+        playerPlaying = "player1Moves"
+    }
     gameHistory.turn += 1;
     gameHistory[playerPlaying].push([...playerMoves])
 }
@@ -28,8 +34,6 @@ function playTurn(element){
 }
 
 function removeElementEvent(event) {
-    let id;
-    let lineID;
     // we handle the cases of pressing the image or the container around it
     if ( event.target.nodeName === "IMG" ) {
         playTurn(event.target.parentElement)
