@@ -69,10 +69,11 @@ input:invalid {
 
 .item img {
     max-width: 20%;
+    min-width: 5%;
 }
 
-.container {
-    flex-direction: row;
-    flex-wrap: wrap;
-}
+/*.container {*/
+/*    flex-direction: row;*/
+/*    flex-wrap: wrap;*/
+/*}*/
 
