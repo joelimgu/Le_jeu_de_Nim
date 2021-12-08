@@ -6,38 +6,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Interface-style.css">
+    <script type="type/javascript" src="windowmanager.js">/</script>
     <title>Jeu de Nim</title>
 </head>
 
 
 <body>
-    <section>
-        <H1>Interface</H1>
-    </section>
-    <div id="playingfield">
-        <div class="container" id="line-1">
-            <div class="item"><img src="./stick.png" width="25rem"></div>
+    <header>
+        <div class="header">  
+            <div><a href="index.html"><img src="./Assets/Images/home.png" alt="Home" width="100"/></a></div>  
+            <h1 >Jeu de Nim</h1>
+            <div></div>
         </div>
-        <div class="container">
-            <div class="item"><img src="./stick.png" width="25rem"></div>
-            <div class="item"><img src="./stick.png" width="25rem"></div>
-            <div class="item"><img src="./stick.png" width="25rem"></div>
-        </div>
-        <div class="container">
-            <div class="item"><img src="./stick.png"width="25rem"></div>
-            <div class="item"><img src="./stick.png"width="25rem"></div>
-            <div class="item"><img src="./stick.png"width="25rem"></div>
-            <div class="item"><img src="./stick.png"width="25rem"></div>
-        </div>
-        <div class="container">
-            <div class="item"><img src="./stick.png"width="25rem"></div>
-            <div class="item"><img src="./stick.png"width="25rem"></div>
-            <div class="item"><img src="./stick.png"width="25rem"></div>
-            <div class="item"><img src="./stick.png"width="25rem"></div>
-            <div class="item"><img src="./stick.png"width="25rem"></div>
-        </div>    
-    </div>
-    
+        <hr />
+    </header>
+    <main>
+        <section class="set">
+            <h2>Paramètres</h2>
+            <div class="form" >
+                <form id="settings">
+                    
+
+                    <div><input type="text" id="columnNumber" name="columnNumber" pattern="[0-9]+" value="5"><button>Ajouter une ligne</button></div>
+                    <div>
+                        <label for="difficulte">Choisir la difficulté: </label>
+                        <select id="difficulte" name="diff">
+                            <option value="facile">Facile</option>
+                            <option value="intermediaire">Inermédiaire</option>
+                            <option value="difficile">Difficile</option>
+                            <option value="impossible">Impossible</option>
+                        </select>
+                    </div>
+                    <div><button type="submit" onclick="game()">Confirmer</button><button type="reset">Reinitialiser</button></div>
+                </form>
+                <div id="array">
+                    <table border="1" id="disparray">
+                        <tr>
+                                <th>Line</th>
+                                <th>Column</th>
+                                
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        <hr />
+        </section>
+        <section class="interface">
+            <H2>Interface</H2>
+            <div id="playingfield">
+                <div class="container" id="line-1">
+                    <div class="item"></div>
+                </div>
+                <div class="container">
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                </div>
+                <div class="container">
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                </div>
+                <div class="container">
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                    <div class="item"></div>
+                </div>    
+            </div>
+            <button onclick="param()">param</button>
+        </section>
+    </main>
+    <footer>
+        <hr />
+        <div>Credits : MOULIN Romain | SAAD BEN SALLAH Mongi | IMBERGAMO GUASCH Joel | ROBERT Gwenael</div>
+    </footer>
       
 </body>
 <script src="game-rendering.js"></script>

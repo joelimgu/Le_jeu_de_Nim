@@ -15,6 +15,10 @@ function createStick() {
     const li = document.createElement('div')
     li.className = "item"
     li.setAttribute("onclick","removeElementEvent(event)")
+    const img = document.createElement('img')
+    img.src = "./stick.png"
+    // img.style.width = "25rem"
+    li.appendChild(img)
     return li
 }
 
