@@ -12,10 +12,19 @@ function param()
 
 let tab=[];
 function removeRow(mouseEvent) {
-    console.log(mouseEvent.target.parentElement.parentElement.firstChild);
-    tab.splice(mouseEvent.target.parentElement.parentElement.firstChild.value,1);
+    console.log(tab);
+    tab.splice(mouseEvent.target.parentElement.parentElement.firstChild.value-1,1);
     mouseEvent.target.parentElement.parentElement.remove();
+    console.log(tab);
 
+}
+function reset()
+{
+    document.getElementById("columnNumber").value=5;
+    document.getElementById("difficulte").value="facile";
+    tab=[];
+    const body = document.getElementById("tablebody")
+    body.innerHTML='';
 }
 function displaygrid(){
     
@@ -25,7 +34,7 @@ function displaygrid(){
         if(element){
             const newRow = document.createElement("TR");
             const lineCell = document.createElement("TD");
-            lineCell.innerText=index;
+            lineCell.innerText=index+1;
             const columnCell = document.createElement("TD");
             columnCell.innerText=element;
             const removeCell = document.createElement("TD");

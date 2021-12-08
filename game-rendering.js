@@ -1,11 +1,7 @@
 
 
-<<<<<<< HEAD
-const game = [1,3,  5]
-=======
 let game = [1,3,10]
 for ( let i = 0; i<100; i++) game.push(5);
->>>>>>> f0869879cd4d5d6304737962be1ec0801538fd23
 const playerMoves = Array(game.length).fill(0)
 const gameHistory = {
     turn: 0,
