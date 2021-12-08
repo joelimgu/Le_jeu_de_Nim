@@ -23,7 +23,7 @@ body, html{
     background-color: white;
 }
 main{
-  height: 85vh;
+  min-height: 85vh;
 }
 
 img{

@@ -1,35 +1,43 @@
 
 
-const game = [1,3,5]
+let game = [1,3,10]
+for ( let i = 0; i<100; i++) game.push(5);
 const playerMoves = Array(game.length).fill(0)
 const gameHistory = {
     turn: 0,
     player1Moves: [[...playerMoves]],
-    player2Moves: [[...playerMoves]]
+    player2Moves: []
 }
 let playerPlaying = "player1Moves";
 
 function startTurn() {
+    if ( playerPlaying === "player1Moves" ) playerPlaying = "player2Moves"
     gameHistory.turn += 1;
-    gameHistory.player1Moves.push([...playerMoves])
-    gameHistory.player2Moves.push([...playerMoves])
+    gameHistory[playerPlaying].push([...playerMoves])
+}
+
+function playTurn(element){
+    const id = element.className
+    const lineID = id[id.length-1];
+    const hasPlayed = gameHistory[playerPlaying][gameHistory.turn].reduce((prev, curr) =>  curr+prev, 0) > 0
+    const isPlayingInTheSameLine = gameHistory[playerPlaying][gameHistory.turn][lineID] > 0
+    if ( !hasPlayed || isPlayingInTheSameLine ) {
+        gameHistory[playerPlaying][gameHistory.turn][lineID] += 1;
+        element.remove()
+    }
 }
 
 function removeElementEvent(event) {
     let id;
+    let lineID;
     // we handle the cases of pressing the image or the container around it
     if ( event.target.nodeName === "IMG" ) {
-        console.log(event.target.parentElement.className)
-        id = event.target.parentElement.className
-        event.target.parentElement.remove()
+        playTurn(event.target.parentElement)
     } else {
-        console.log(event.target.className)
-        id = event.target.className
-        event.target.remove()
+        playTurn(event.target)
     }
-    const lineID = id[id.length-1]
-    gameHistory[playerPlaying][gameHistory.turn][lineID] += 1;
-    startTurn()
+
+    // startTurn()
     console.log(gameHistory)
 }
 
