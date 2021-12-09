@@ -37,6 +37,8 @@ img{
 h2{
   margin-top:0;
   margin-left: 10%;
+  font-family: Moutarde;
+  font-size: 2rem;
 }
 
 .header{
@@ -51,6 +53,28 @@ h2{
   justify-content: space-between; 
 }
 
+input[type=text]{
+  transition: 0.2s ease-in-out;
+  width: 50%;
+}
+
+input[type=text]:focus {
+  border: 1px solid #555;
+  background-color: #DCDCDC;
+  width: 50%;
+}
+
+select {
+  width: 40%;
+  margin: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #90EE90;
+  font-size: 1.1rem;
+  font-family: Moutarde;
+  text-align: center;
+}
+
 footer{
   font-family: Moutarde;
   color:#D3D3D3;
@@ -62,15 +86,16 @@ footer{
   flex-direction: row ;
   justify-content: space-around;
 }
-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+
+
+#settings{
+  width:30%;
 }
+
 input:invalid {
   border: 3px solid red;
 }
+
 
 .interface{
   padding-top: 1%;
