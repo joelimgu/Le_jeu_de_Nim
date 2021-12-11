@@ -1,0 +1,28 @@
+{
+  "name": "le_jeu_de_nim",
+  "version": "1.0.0",
+  "description": "Nim game in JS for class",
+  "main": "AI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelimgu/Le_jeu_de_Nim.git"
+  },
+  "author": "Gwenael Robert, Mongi Saad, Romain Moulin, Joel Imbergamo Guasch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joelimgu/Le_jeu_de_Nim/issues"
+  },
+  "homepage": "https://github.com/joelimgu/Le_jeu_de_Nim#readme",
+  "dependencies": {
+    "prompt": "^1.2.0",
+    "prompt-sync": "^4.2.0",
+    "save": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/prompt": "^1.1.2",
+    "@types/prompt-sync": "^4.1.1"
+  }
+}
