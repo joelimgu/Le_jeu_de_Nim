@@ -1,4 +1,9 @@
 
+@font-face {
+  font-family: "Moutarde" ;
+  src: url(./Assets/Police/Moutarde\ DEMO.otf);
+}
+
 /* make the page make sense */
 html, body {
   width: 100vw;
@@ -9,13 +14,11 @@ html, body {
 }
 
 * {
-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Moutarde, sans-serif ;
 }
 
-@font-face {
-  font-family: "Moutarde" ;
-  src: url(./Assets/Police/Moutarde\ DEMO.otf);
-}
+
 
 body, html{
     padding: 0;
@@ -34,15 +37,12 @@ img{
   width: 20%;
 }
 
-h2{
+h2 {
   margin-top:0;
-  margin-left: 10%;
-  font-family: Moutarde;
   font-size: 2rem;
 }
 
 .header{
-  font-family: Moutarde;
   font-size:2vh;
   color:#D3D3D3;
   background-color: #2E8B57;
@@ -71,12 +71,10 @@ select {
   border-radius: 4px;
   background-color: #90EE90;
   font-size: 1.1rem;
-  font-family: Moutarde;
   text-align: center;
 }
 
 footer{
-  font-family: Moutarde;
   color:#D3D3D3;
   height: 5vh;
   background-color: #4b3621;
@@ -100,22 +98,18 @@ input:invalid {
 .interface{
   padding-top: 1%;
   padding-bottom: 1%;
-
+  margin: 0 10% 0 10%;
 }
 
 
 #playingfield{
   border-radius: 30px;
-  margin-left:10%;
-  margin-right:10%;
   background-color: rgba(27.5, 49.4, 28.6, 0.3);
 }
 
 .container {
-
   display: flex;
   justify-content: space-around;
-
 }
 
 .item {

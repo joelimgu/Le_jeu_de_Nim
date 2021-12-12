@@ -7,6 +7,9 @@ Nim game in JS for class
 - Footer
 - Interface jeu (Joel)
 - Js (jeu)
-
+- End game
+- GIve feedback when a turn passes
+- some animation for make stick disappear
+- regarder pq le tableau n'utilise pas la bonne police parfois 🤦
 
 

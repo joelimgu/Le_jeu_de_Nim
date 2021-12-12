@@ -25,8 +25,8 @@
             <div class="form" >
                 <div id="settings">
                     
-
-                    <div><input type="text" id="columnNumber" name="columnNumber" pattern="[0-9]|10" value="5"><button onclick="addRow()">Ajouter une ligne</button></div>
+                    <!-- doc for the label: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label-->
+                    <div><label for="columnNumber"></label><input type="text" id="columnNumber" name="columnNumber" pattern="[0-9]|10" value="5"><button onclick="addRow()">Ajouter une ligne</button></div>
                     <div class="Case_Selection">
                         <label for="difficulte">Choisir la difficulté: </label>
                         <select id="difficulte" name="diff">
@@ -80,6 +80,7 @@
 <!--                    <div class="item"></div>-->
 <!--                </div>    -->
             </div>
+            <button onclick="startTurn()">End Turn (E)</button>
         </section>
     </main>
     <footer>

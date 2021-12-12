@@ -34,8 +34,12 @@ function playTurn(element){
     const lineID = id[id.length-1];
     const hasPlayed = gameHistory[playerPlaying][gameHistory.turn].reduce((prev, curr) =>  curr+prev, 0) > 0
     const isPlayingInTheSameLine = gameHistory[playerPlaying][gameHistory.turn][lineID] > 0
-    if ( !hasPlayed || isPlayingInTheSameLine ) {
+    if ( game.reduce((ant, curr) => ant + curr ) === 0 ) {
+        // game has ended
+        // todo end game
+    } else if ( !hasPlayed || isPlayingInTheSameLine ) {
         gameHistory[playerPlaying][gameHistory.turn][lineID] += 1;
+        game[lineID] -= 1;
         element.remove()
     }
 }
@@ -51,7 +55,6 @@ function removeElementEvent(event) {
         playTurn(event.target)
     }
 
-    // startTurn()
     console.log(gameHistory)
 }
 
@@ -113,5 +116,9 @@ function createGame(game) {
         for (let i = 0; i<nbSticks; i++) addChild(index);
     })
 }
+
+window.addEventListener("keypress", (event) => {
+    if ( event.code === "KeyE" ) startTurn();
+})
 
 createGame(game)
