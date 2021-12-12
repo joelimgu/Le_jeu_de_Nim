@@ -29,18 +29,20 @@ function startTurn() {
 /*
  gets the element containing the image and notes the corresponding move in the gameHistory Object.
  */
-function playTurn(element){
+function playTurn(element) {
     const id = element.className
     const lineID = id[id.length-1];
     const hasPlayed = gameHistory[playerPlaying][gameHistory.turn].reduce((prev, curr) =>  curr+prev, 0) > 0
     const isPlayingInTheSameLine = gameHistory[playerPlaying][gameHistory.turn][lineID] > 0
-    if ( game.reduce((ant, curr) => ant + curr ) === 0 ) {
-        // game has ended
-        // todo end game
-    } else if ( !hasPlayed || isPlayingInTheSameLine ) {
+    if ( !hasPlayed || isPlayingInTheSameLine ) {
         gameHistory[playerPlaying][gameHistory.turn][lineID] += 1;
         game[lineID] -= 1;
         element.remove()
+    }
+    if ( game.reduce((ant, curr) => ant + curr ) === 0 ) {
+        // game has ended
+        // todo end game
+        console.log(`Game ended! 🥳 player ${ playerPlaying === "player1Moves"? "1" : "2"} wins`)
     }
 }
 
@@ -92,19 +94,6 @@ function addChild(ln) {
     if (!Array.from(lines.children)[ln]) lines.appendChild(createLine(ln));
     Array.from(lines.children)[ln].appendChild(createStick(ln))
 }
-
-// /*
-//     removes a child
-//  */
-// function popChild(ln, player, playerMoves, game) {
-//     const lines = document.getElementById("playingfield").children;
-//     Array.from(lines)[ln].children[0].remove()
-//     playerMoves[player]
-//         ? playerMoves[player][ln]++
-//         : playerMoves[player] = Array(game.length).fill(0)
-//
-//     return playerMoves
-// }
 
 /*
     given an array where the index represents the line and the value the number of sticks in that line it creates
