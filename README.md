@@ -11,5 +11,7 @@ Nim game in JS for class
 - GIve feedback when a turn passes
 - some animation for make stick disappear
 - regarder pq le tableau n'utilise pas la bonne police parfois 🤦
+- même corner radious pour tous les elements...
+- icone maison plus petit
 
 
