@@ -2,7 +2,7 @@
   "name": "le_jeu_de_nim",
   "version": "1.0.0",
   "description": "Nim game in JS for class",
-  "main": "AI.js",
+  "main": "mongi_code_translation.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
