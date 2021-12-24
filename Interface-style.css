@@ -16,6 +16,7 @@ html, body {
 * {
   box-sizing: border-box;
   font-family: Moutarde, sans-serif ;
+  letter-spacing: 1px;
 }
 
 
@@ -30,7 +31,7 @@ main{
 }
 
 img{
-  width: 20%;
+  width: 15%;
 }
 
 .centrer{
@@ -85,6 +86,19 @@ footer{
   justify-content: space-around;
 }
 
+button{
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+th{
+  font-size: 1.2rem;
+}
+
+tr{
+  text-align: center;
+  vertical-align: middle;
+}
 
 #settings{
   width:30%;
@@ -130,6 +144,9 @@ input:invalid {
     min-width: 5%;
 }
 
+.set{
+  margin-left: 0.5rem;
+}
 /*.container {*/
 /*    flex-direction: row;*/
 /*    flex-wrap: wrap;*/
