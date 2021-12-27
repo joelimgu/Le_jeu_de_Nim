@@ -57,8 +57,8 @@ function randInterval(a: number ,b: number): number {
     return Math.floor(Math.random()*b) + a
 }
 
-function findMove(game: number[]) {
-    let move = undefined
+function findMove(game: number[]): {line: number, nbToRemove: number} {
+    let move: {line: number, nbToRemove: number} | undefined = undefined
     /*
         try removing one by one all the elements in all the lines
         until we find an optimal move.
@@ -84,8 +84,7 @@ function findMove(game: number[]) {
         while ( aux[randLine] === 0 ) {
             randLine = randInterval(0, aux.length - 1);
         }
-        aux[randLine] -= randInterval(1, aux[randLine]);
-        move = aux
+        move = {line: randLine, nbToRemove: randInterval(1, aux[randLine])}
     }
     return move
 }
