@@ -65,7 +65,7 @@ def jouer_strategie(liste) :
         recup=liste[l]
         nb = 1
         while nb <= liste[l] :
-            liste[l]=recup-nb
+            liste[l]=recup - nb
             if position_paire(liste) and not(trouve) :
                 trouve = True
                 ligne = l

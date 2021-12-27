@@ -8,6 +8,8 @@ type binNumber = Array<0|1> // array of 0's and 1's
 // returns the binary expression of an integer as a binNumber type
 function numberToBin(n: number): binNumber {
     const binStr = n.toString(2)
+    // transform the string to array and transform the char to numbers and make TS understand the type correctly
+    // we are saying :"trust me it's an array of 1's and 0's"
     return <Array<0 | 1>>binStr.split('').map((el) => Number(el));
 }
 
@@ -32,4 +34,74 @@ function XORSum(game: number[]): binNumber {
     }, arrayOfZeros)
 }
 
+/**
+ * Retruns true if the list is all 0's
+ * @param list: binNumber
+ * @returns boolean indicating if it's all 0's or not
+ */
+function theMoveIsOptimal(list: binNumber): boolean {
+    // @ts-ignore
+    return list.reduce((prev, current) => {
+        return prev && (current === 0);
+    }, true);
+}
+
+/**
+ * Returns a non-cryptographic random number between a and b
+ *
+ * @param a - The lower interval number
+ * @param b - The bigger interval number
+ * @returns a random number between a and b
+ */
+function randInterval(a: number ,b: number): number {
+    return Math.floor(Math.random()*b) + a
+}
+
+function findMove(game: number[]) {
+    let move = undefined
+    /*
+        try removing one by one all the elements in all the lines
+        until we find an optimal move.
+        An optimal move is defined by having and XORSum un 0...0
+     */
+    for ( let l = 0; l < game.length; l++ ) {
+        for ( let n = 1; n <= game[l] + 1; n++ ) {
+            let aux = [...game] // create a copy of the array
+            aux[l] -= n
+            if ( theMoveIsOptimal(XORSum(aux)) ) {
+                console.log(`found optimal: ${aux}`)
+                move = {line: l, nbToRemove: n}
+                break
+            }
+        }
+        if ( move ) { // bc undefined is falsy
+            break
+        }
+    }
+    if ( !move ) {
+        let aux = [...game]
+        let randLine = randInterval(0, aux.length - 1);
+        while ( aux[randLine] === 0 ) {
+            randLine = randInterval(0, aux.length - 1);
+        }
+        aux[randLine] -= randInterval(1, aux[randLine]);
+        move = aux
+    }
+    return move
+}
+
+console.log(findMove([4,2,1]))
+
 // console.log(XORSum([5,1]))
+// 100
+// 011
+// 111 --> pas possible
+
+// 011
+// 011
+// 000
+
+// 100
+// 010
+// 110
+// 000

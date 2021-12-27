@@ -10,7 +10,7 @@ const gameHistory = {
 }
 let playerPlaying = "player1Moves";
 
-/*
+/**
   Changes the player and go to the following turn, adding at the same time the corresponding arrays in order to store
   next turn moves.
  */
@@ -26,7 +26,7 @@ function startTurn() {
     gameHistory[playerPlaying].push([...playerMoves])
 }
 
-/*
+/**
  gets the element containing the image and notes the corresponding move in the gameHistory Object.
  */
 function playTurn(element){
@@ -40,7 +40,7 @@ function playTurn(element){
     }
 }
 
-/*
+/**
    removes the element, is the function called on the 'onclick' event in each stick
  */
 function removeElementEvent(event) {
@@ -55,7 +55,7 @@ function removeElementEvent(event) {
     console.log(gameHistory)
 }
 
-/*
+/**
     creates a stick in the lines passed as arument
     @param ln number
  */
@@ -80,7 +80,7 @@ function createLine(id) {
     return li
 }
 
-/*
+/**
     adds a child  ( a stick ) to the line passed as argument
     @param ln number
  */
@@ -90,7 +90,7 @@ function addChild(ln) {
     Array.from(lines.children)[ln].appendChild(createStick(ln))
 }
 
-// /*
+// /**
 //     removes a child
 //  */
 // function popChild(ln, player, playerMoves, game) {
@@ -103,7 +103,7 @@ function addChild(ln) {
 //     return playerMoves
 // }
 
-/*
+/**
     given an array where the index represents the line and the value the number of sticks in that line it creates
     all the htlm structure required to play the game.
     @param game Array<number>
