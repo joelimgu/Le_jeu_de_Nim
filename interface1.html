@@ -27,6 +27,15 @@
                     
                     <!-- doc for the label: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label-->
                     <div><label for="columnNumber"></label><input type="text" id="columnNumber" name="columnNumber" pattern="[0-9]|10" value="5"><button onclick="addRow()">Ajouter une ligne</button></div>
+                    <div class="Case_Selection">
+                        <label for="difficulte">Choisir la difficulté: </label>
+                        <select id="difficulte" name="diff">
+                            <option value="facile" class="Facile">Facile</option>
+                            <option value="intermediaire" class="Intermediaire">Inermédiaire</option>
+                            <option value="difficile" class="Difficile">Difficile</option>
+                            <option value="impossible" class="Impossible">Impossible</option>
+                        </select>
+                    </div>
                     <div><button type="submit" onclick="play()">Confirmer</button><button type="reset" onclick="reset()">Reinitialiser</button></div>
                 </div>
                 <div id="array">

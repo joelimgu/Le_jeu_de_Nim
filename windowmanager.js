@@ -7,6 +7,7 @@ function param()
 {
     document.getElementById("set").style.display="inline"; 
     document.getElementById("interface").style.display="none";
+    console.log("Test");
 }
 
 
@@ -60,3 +61,4 @@ function addRow(){
     else {alert("Valeur non comprise entre 0 et 10! C'est la loi dsl")}
     
 }
+param()
