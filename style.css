@@ -10,10 +10,11 @@ html, body {
 
 * {
     box-sizing: border-box;
+    letter-spacing: 1px;
 }
 
 img{
-    width: 20%;
+    width: 15%;
 }
 
 .centrer{
@@ -127,7 +128,7 @@ footer{
 
 @media screen and (min-width:1280px) and (min-height: 550px){
     .texte{
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-family: Moutarde;
         color:#D3D3D3;
         padding-top:5% ;
