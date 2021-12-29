@@ -12,10 +12,10 @@ function param()
 
 let tab=[];
 function removeRow(mouseEvent) {
-    console.log(tab);
+    //console.log(tab);
     tab.splice(mouseEvent.target.parentElement.parentElement.firstChild.value-1,1);
     mouseEvent.target.parentElement.parentElement.remove();
-    console.log(tab);
+    //console.log(tab);
 
 }
 function reset()
