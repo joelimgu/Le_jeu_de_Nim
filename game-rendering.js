@@ -8,11 +8,17 @@ const gameHistory = {
     player2Moves: []
 };
 let playerPlaying = "player1Moves";
+function playerHasPlayed() {
+    return gameHistory[playerPlaying][gameHistory.turn].reduce((prev, curr) => curr + prev, 0) > 0;
+}
 /**
   Changes the player and go to the following turn, adding at the same time the corresponding arrays in order to store
   next turn moves.
  */
 function startTurn() {
+    if (!playerHasPlayed()) { // if the player hasn't removed an element don't pass turn
+        return;
+    }
     if (playerPlaying === "player1Moves") {
         playerPlaying = "player2Moves";
         gameHistory.player2Moves.push([]);
@@ -31,17 +37,12 @@ function playTurn(element) {
     // get the line ID
     const id = element.className;
     const lineID = id[id.length - 1];
-    const playerHasPlayed = gameHistory[playerPlaying][gameHistory.turn].reduce((prev, curr) => curr + prev, 0) > 0;
+    // const playerHasPlayed = gameHistory[playerPlaying][gameHistory.turn].reduce((prev, curr) =>  curr+prev, 0) > 0
     const playerIsPlayingInTheSameLine = gameHistory[playerPlaying][gameHistory.turn][lineID] > 0;
-    if (!playerHasPlayed || playerIsPlayingInTheSameLine) {
+    if (!playerHasPlayed() || playerIsPlayingInTheSameLine) {
         gameHistory[playerPlaying][gameHistory.turn][lineID] += 1;
         updatedGame[lineID] -= 1;
         element.remove();
-    }
-    if ( game.reduce((ant, curr) => ant + curr ) === 0 ) {
-        // game has ended
-        // todo end game
-        console.log(`Game ended! 🥳 player ${ playerPlaying === "player1Moves"? "1" : "2"} wins`)
     }
 }
 /**
@@ -108,7 +109,6 @@ function addChild(ln) {
 //     return playerMoves
 // }
 /**
-
     given an array where the index represents the line and the value the number of sticks in that line it creates
     all the htlm structure required to play the game.
     @param game Array<number>
@@ -136,10 +136,3 @@ function makeAIMove(game) {
         removeStick(move.line);
     }
 }
-
-
-window.addEventListener("keypress", (event) => {
-    if ( event.code === "KeyE" ) startTurn();
-})
-
-createGame(game)
