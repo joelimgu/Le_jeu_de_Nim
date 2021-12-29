@@ -7,16 +7,15 @@ function param()
 {
     document.getElementById("set").style.display="inline"; 
     document.getElementById("interface").style.display="none";
-    console.log("Test");
 }
 
 
 let tab=[];
 function removeRow(mouseEvent) {
-    console.log(tab);
+    //console.log(tab);
     tab.splice(mouseEvent.target.parentElement.parentElement.firstChild.value-1,1);
     mouseEvent.target.parentElement.parentElement.remove();
-    console.log(tab);
+    //console.log(tab);
 
 }
 function reset()
@@ -61,4 +60,3 @@ function addRow(){
     else {alert("Valeur non comprise entre 0 et 10! C'est la loi dsl")}
     
 }
-param()
