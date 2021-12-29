@@ -143,8 +143,8 @@ input:invalid {
     min-width: 5%;
 }
 
-.set{
-  margin-left: 0.5rem;
+.set h2{
+  margin-left: 10%;
 }
 /*.container {*/
 /*    flex-direction: row;*/
