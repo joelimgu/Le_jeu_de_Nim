@@ -104,7 +104,7 @@ input:invalid {
   border-radius: 5px;
   background: white;
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.2);
-  display: none;
+  
 }
 .message {
   font-size:1.1rem;
