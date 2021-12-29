@@ -38,6 +38,11 @@ function playTurn(element) {
         updatedGame[lineID] -= 1;
         element.remove();
     }
+    if ( game.reduce((ant, curr) => ant + curr ) === 0 ) {
+        // game has ended
+        // todo end game
+        console.log(`Game ended! 🥳 player ${ playerPlaying === "player1Moves"? "1" : "2"} wins`)
+    }
 }
 /**
    removes the element, is the function called on the 'onclick' event in each stick
@@ -103,6 +108,7 @@ function addChild(ln) {
 //     return playerMoves
 // }
 /**
+
     given an array where the index represents the line and the value the number of sticks in that line it creates
     all the htlm structure required to play the game.
     @param game Array<number>
@@ -130,3 +136,10 @@ function makeAIMove(game) {
         removeStick(move.line);
     }
 }
+
+
+window.addEventListener("keypress", (event) => {
+    if ( event.code === "KeyE" ) startTurn();
+})
+
+createGame(game)
