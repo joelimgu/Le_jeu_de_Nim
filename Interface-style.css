@@ -1,15 +1,23 @@
 
+@font-face {
+  font-family: "Moutarde" ;
+  src: url(./Assets/Police/Moutarde\ DEMO.otf);
+}
 /* make the page make sense */
 html, body {
   width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
+  background-image: url(./Assets/Images/background.png);
 }
 
 * {
-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: Moutarde, sans-serif ;
+  letter-spacing: 1px;
 }
+
 
 
 body, html{
@@ -18,38 +26,103 @@ body, html{
     background-color: white;
 }
 main{
-  height: 80vh;
+  min-height: 85vh;
 }
+
+img{
+  width: 15%;
+}
+
+.centrer{
+  width: 20%;
+}
+
+h2 {
+  margin-top:0;
+  font-size: 2rem;
+}
+
 .header{
-  width: 100%;
+  font-size:2vh;
+  color:#D3D3D3;
+  background-color: #2E8B57;
   height: 10vh;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between; 
 }
 
+input[type=text]{
+  transition: 0.2s ease-in-out;
+  width: 50%;
+}
+
+input[type=text]:focus {
+  border: 1px solid #555;
+  background-color: #DCDCDC;
+  width: 50%;
+}
+
+select {
+  width: 40%;
+  margin: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #90EE90;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
 footer{
-  font-size: small;
-  text-align: right;
-  height: 10vh;
+  color:#D3D3D3;
+  height: 5vh;
+  background-color: #4b3621;
 }
 .form{
   display: flex;
   flex-direction: row ;
   justify-content: space-around;
 }
-form{
-  display: flex;
-  flex-direction: column;
+
+button{
+  margin-left: 0.5rem;
+  font-size: 0.9rem;
 }
+
+th{
+  font-size: 1.2rem;
+}
+
+tr{
+  text-align: center;
+  vertical-align: middle;
+}
+
+#settings{
+  width:30%;
+}
+
 input:invalid {
   border: 3px solid red;
 }
 
+
+.interface{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin: 0 10% 0 10%;
+}
+
+
+#playingfield{
+  border-radius: 30px;
+  background-color: rgba(27.5, 49.4, 28.6, 0.3);
+}
+
 .container {
-    display: flex;
-    background-color: thistle;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 .item {
@@ -63,11 +136,11 @@ input:invalid {
   color:whitesmoke;
   font-size: 0.20rem;
   text-align: center;
-
 }
-.container {
-    flex-direction: row;
-    flex-wrap: wrap;
+
+.item img {
+    max-width: 20%;
+    min-width: 5%;
 }
  
 .pop {  
@@ -144,4 +217,11 @@ input:invalid {
 }
 
 
+.set h2{
+  margin-left: 10%;
+}
+/*.container {*/
+/*    flex-direction: row;*/
+/*    flex-wrap: wrap;*/
+/*}*/
 

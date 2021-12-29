@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" >
     <title>Jeu de Nim</title>
+    <link rel="shortcut icon" href="./Assets/Images/icone.png">
 </head>
 
 
@@ -13,29 +14,29 @@
     <div class="Page">
     <header>
         <div class="header">  
-            <div><a href="index.html"><img src="./Assets/Images/home.svg" alt="Home" width="100"/></a></div>  
+            <div><a href="index.html"><img src="./Assets/Images/home.png" alt="Home" width="100"/></a></div>  
             <h1 >Jeu de Nim</h1>
-            <div></div>
+            <div class="centrer"></div>
         </div>
-        <hr />
     </header>
     <main>
-    <div class="texte">
-        <p>Les Règles du jeu de Nim sont les suivantes :</p>
-        <p>-Il s'agit d'un jeu où deux joueurs s'affrontent en jouant à tour de rôle.</p>
-        <p>-Le plateau est constitué de plusieurs lignes contenant chacunes plusieurs bâtons.</p>
-        <p>-Quand c'est son tour, un joueur choisit une ligne et enlève le nombre de bâton qu'il souhaite (au moins 1 et au maximum le nombre de bâton total présent sur la ligne)</p>
-        <p>-Le joueur qui enlève le dernier bâton du plateau gagne</p>
+    <div class="box_texte">
+        <div class="texte">
+            <p>Les Règles du jeu de Nim sont les suivantes :</p>
+            <p>-Il s'agit d'un jeu où deux joueurs s'affrontent en jouant à tour de rôle.</p>
+            <p>-Le plateau est constitué de plusieurs lignes contenant chacunes plusieurs bâtons.</p>
+            <p>-Quand c'est son tour, un joueur choisit une ligne et enlève le nombre de bâton qu'il souhaite (au moins 1 et au maximum le nombre de bâton total présent sur la ligne)</p>
+            <p>-Le joueur qui enlève le dernier bâton du plateau gagne</p>
+        </div>
     </div>
 
         <div class="boutons">
-            <button class="bouton1">1 Joueur</button>
-            <button class="bouton2">2 Joueurs</button> 
+            <button class="bouton1" onclick="window.location.href='./interface1.html'">1 Joueur</button>
+            <button class="bouton2" onclick="window.location.href='./interface.html'">2 Joueurs</button> 
         </div>
     </main>
     <footer>
-        <hr />
-        <div>Credits : MOULIN Romain | SAAD BEN SALLAH Mongi | IMBERGAMO GUASCH Joel | ROBERT Gwenael</div>
+        <div class="text_footer">Credits : MOULIN Romain | SAAD BEN SALLAH Mongi | IMBERGAMO GUASCH Joel | ROBERT Gwenael</div>
     </footer>
     </div>
 </body>
