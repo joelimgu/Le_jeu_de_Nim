@@ -47,12 +47,18 @@ function theMoveIsOptimal(list) {
 function randInterval(a, b) {
     return Math.floor(Math.random() * b) + a;
 }
+/**
+ * try removing one by one all the elements in all the lines
+ * until we find an optimal move.
+ * An optimal move is defined by having and XORSum un 0...0
+ *
+ * @param game - number[]
+ * @return the optimal move to play
+ */
 function findMove(game) {
     let move = undefined;
     /*
-        try removing one by one all the elements in all the lines
-        until we find an optimal move.
-        An optimal move is defined by having and XORSum un 0...0
+
      */
     for (let l = 0; l < game.length; l++) {
         for (let n = 1; n <= game[l] + 1; n++) {
@@ -79,14 +85,3 @@ function findMove(game) {
     return move;
 }
 console.log(findMove([4, 2, 1]));
-// console.log(XORSum([5,1]))
-// 100
-// 011
-// 111 --> pas possible
-// 011
-// 011
-// 000
-// 100
-// 010
-// 110
-// 000

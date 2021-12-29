@@ -1,5 +1,6 @@
 
 type playerMoving = "player1Moves" | "player2Moves"
+
 const game = [1,3,10]
 let updatedGame = [...game] // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0)
