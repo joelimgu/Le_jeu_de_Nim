@@ -36,9 +36,16 @@ function startTurn() {
 }
 
 /**
+ * Ends the game
+ */
+function endGame() {
+    alert(`Player ${playerPlaying} wins! 🥳`)
+}
+
+/**
  gets the element containing the image and notes the corresponding move in the gameHistory Object.
  */
-function playTurn(element: any){
+function playTurn(element: any) {
     // get the line ID
     const id = element.className
     const lineID = id[id.length-1];
@@ -48,6 +55,11 @@ function playTurn(element: any){
         gameHistory[playerPlaying][gameHistory.turn][lineID] += 1;
         updatedGame[lineID] -= 1
         element.remove()
+    }
+    // returns true if all the elements of the array are 0
+    const arrIsAll0 = (arr: number[]) => arr.reduce((prev, current) => current === 0 && prev, true)
+    if ( arrIsAll0(updatedGame) ) {
+        endGame()
     }
 }
 
@@ -147,3 +159,15 @@ function makeAIMove(game: number[]) {
         removeStick(move.line)
     }
 }
+
+/**
+ * An event listener listening for the "e" key, so it's easier to end turn.
+ */
+window.addEventListener("keypress", (event) => {
+    console.log(event.key)
+    if (event.key === "e") {
+        startTurn()
+    }
+})
+
+
