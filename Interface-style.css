@@ -6,7 +6,8 @@
 /* make the page make sense */
 html, body {
   width: 100vw;
-  height: 100vh;
+   
+   height: 100vh;
   margin: 0;
   padding: 0;
   background-image: url(./Assets/Images/background.png);
@@ -75,10 +76,17 @@ select {
 }
 
 footer{
+
   color:#D3D3D3;
   height: 5vh;
   background-color: #4b3621;
 }
+
+.text_footer{
+  padding-right: 2%;
+  text-align: right;
+}
+
 .form{
   display: flex;
   flex-direction: row ;
