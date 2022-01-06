@@ -1,6 +1,7 @@
 
 type playerMoving = "player1Moves" | "player2Moves"
 
+// const MYAPPVARS = {}
 const game = [1,3,10]
 let updatedGame = [...game] // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0)
@@ -11,6 +12,9 @@ const gameHistory: { player2Moves: number[][]; player1Moves: number[][]; turn: n
 }
 let playerPlaying: playerMoving = "player1Moves";
 
+
+
+
 function playerHasPlayed() {
     return gameHistory[playerPlaying][gameHistory.turn].reduce((prev, curr) =>  curr+prev, 0) > 0
 }
@@ -20,7 +24,7 @@ function playerHasPlayed() {
   next turn moves.
  */
 function startTurn() {
-    if ( !playerHasPlayed() ){ // if the player hasn't removed an element don't pass turn
+    if ( !playerHasPlayed() ) { // if the player hasn't removed an element don't pass turn
         return;
     }
 
@@ -33,6 +37,12 @@ function startTurn() {
     }
     gameHistory.turn += 1;
     gameHistory[playerPlaying].push([...playerMoves])
+
+    if ( /ia/g.test(document.URL) ) { // if the AI should play
+        makeAIMove(updatedGame)
+        startTurn()
+    }
+
 }
 
 /**
@@ -40,6 +50,12 @@ function startTurn() {
  */
 function endGame() {
     alert(`Player ${playerPlaying} wins! 🥳`)
+}
+
+function hasGameEnded(): boolean {
+    // returns true if all the elements of the array are 0
+    const arrIsAll0 = (arr: number[]) => arr.reduce((prev, current) => current === 0 && prev, true)
+    return arrIsAll0(updatedGame)
 }
 
 /**
@@ -54,11 +70,12 @@ function playTurn(element: any) {
     if ( !playerHasPlayed() || playerIsPlayingInTheSameLine ) {
         gameHistory[playerPlaying][gameHistory.turn][lineID] += 1;
         updatedGame[lineID] -= 1
-        element.remove()
+        element.classList.toggle("fade")
+        setTimeout(() => { // arrow function passes context so ok
+            element.remove()
+        }, 500)
     }
-    // returns true if all the elements of the array are 0
-    const arrIsAll0 = (arr: number[]) => arr.reduce((prev, current) => current === 0 && prev, true)
-    if ( arrIsAll0(updatedGame) ) {
+    if ( hasGameEnded() ) {
         endGame()
     }
 }
@@ -138,6 +155,9 @@ function createGame(game: number[]) {
     game.forEach( (nbSticks, index) => {
         for (let i = 0; i<nbSticks; i++) addChild(index);
     })
+
+
+
 }
 
 
@@ -150,11 +170,13 @@ function createGame(game: number[]) {
 function removeStick(line: number) {
     const lineElement: HTMLElement | null = document.getElementById(`line-${line}`)
     lineElement?.children[0].remove() // remove a stick from the line if the line exists
+    updatedGame[line] -= 1
 }
 createGame(game)
 
 function makeAIMove(game: number[]) {
-    const move: { line: number; nbToRemove: number } = findMove(game)
+    const move: { line: number; nbToRemove: number } = findMove(game, undefined)
+    console.log(`AI is making the move: line: ${move.line} quantity: ${move.nbToRemove}`)
     for ( let i = 0; i<move.nbToRemove; i++ ) { // remove all the sticks
         removeStick(move.line)
     }

@@ -38,7 +38,7 @@ img{
 }
 
 h2 {
-  margin-top:0;
+  margin-top: 0;
   font-size: 2rem;
 }
 
@@ -108,12 +108,15 @@ input:invalid {
 }
 
 
-.interface{
+.interface h2{
   padding-top: 1%;
   padding-bottom: 1%;
   margin: 0 10% 0 10%;
 }
 
+.interface div, .interface button{
+  margin: 1% 10% 1% 10%;
+}
 
 #playingfield{
   border-radius: 30px;
@@ -126,15 +129,8 @@ input:invalid {
 }
 
 .item {
-  opacity: 1;
   height: 8rem;
-  cursor: pointer;  
-  border: 0.01rem;
-  border-radius: 0.8rem;
-  margin: 0.5rem;
-  padding: 0.8rem;
-  color:whitesmoke;
-  font-size: 0.20rem;
+  cursor: pointer;
   text-align: center;
 }
 
@@ -224,17 +220,18 @@ input:invalid {
   transform: translate(-0.4rem, -0.4rem);
 }
 
-.btn:active {
-  box-shadow: 0 0 0 black;
-  transform: translate(0, 0);
+.item {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5 ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.options {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.item.fade{
+  opacity:0;
 }
-
 
 .set h2{
   margin-left: 10%;
