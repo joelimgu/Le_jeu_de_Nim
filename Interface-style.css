@@ -213,7 +213,8 @@ input:invalid {
   
 }
 .message {
-  font-size:1.1rem;
+  text-align: center;
+  font-size:2rem;
   margin-bottom: 1.6rem;
   margin-top: 0;
 }
