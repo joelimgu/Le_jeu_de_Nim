@@ -1,5 +1,6 @@
 "use strict";
-const game = [1, 3, 5];
+// const MYAPPVARS = {}
+const game = [1, 3, 10];
 let updatedGame = [...game]; // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0);
 const gameHistory = {
@@ -57,7 +58,10 @@ function playTurn(element) {
     if (!playerHasPlayed() || playerIsPlayingInTheSameLine) {
         gameHistory[playerPlaying][gameHistory.turn][lineID] += 1;
         updatedGame[lineID] -= 1;
-        element.remove();
+        element.classList.toggle("fade");
+        setTimeout(() => {
+            element.remove();
+        }, 500);
     }
     if (hasGameEnded()) {
         endGame();
@@ -150,7 +154,7 @@ function removeStick(line) {
 }
 createGame(game);
 function makeAIMove(game) {
-    const move = findMove(game);
+    const move = findMove(game, undefined);
     console.log(`AI is making the move: line: ${move.line} quantity: ${move.nbToRemove}`);
     for (let i = 0; i < move.nbToRemove; i++) { // remove all the sticks
         removeStick(move.line);

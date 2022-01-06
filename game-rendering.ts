@@ -1,6 +1,7 @@
 
 type playerMoving = "player1Moves" | "player2Moves"
 
+// const MYAPPVARS = {}
 const game = [1,3,10]
 let updatedGame = [...game] // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0)
@@ -10,6 +11,9 @@ const gameHistory: { player2Moves: number[][]; player1Moves: number[][]; turn: n
     player2Moves: []
 }
 let playerPlaying: playerMoving = "player1Moves";
+
+
+
 
 function playerHasPlayed() {
     return gameHistory[playerPlaying][gameHistory.turn].reduce((prev, curr) =>  curr+prev, 0) > 0
@@ -66,7 +70,10 @@ function playTurn(element: any) {
     if ( !playerHasPlayed() || playerIsPlayingInTheSameLine ) {
         gameHistory[playerPlaying][gameHistory.turn][lineID] += 1;
         updatedGame[lineID] -= 1
-        element.remove()
+        element.classList.toggle("fade")
+        setTimeout(() => { // arrow function passes context so ok
+            element.remove()
+        }, 500)
     }
     if ( hasGameEnded() ) {
         endGame()
@@ -148,6 +155,9 @@ function createGame(game: number[]) {
     game.forEach( (nbSticks, index) => {
         for (let i = 0; i<nbSticks; i++) addChild(index);
     })
+
+
+
 }
 
 
@@ -165,7 +175,7 @@ function removeStick(line: number) {
 createGame(game)
 
 function makeAIMove(game: number[]) {
-    const move: { line: number; nbToRemove: number } = findMove(game)
+    const move: { line: number; nbToRemove: number } = findMove(game, undefined)
     console.log(`AI is making the move: line: ${move.line} quantity: ${move.nbToRemove}`)
     for ( let i = 0; i<move.nbToRemove; i++ ) { // remove all the sticks
         removeStick(move.line)
