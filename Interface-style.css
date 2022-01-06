@@ -112,15 +112,17 @@ input:invalid {
   padding-top: 1%;
   padding-bottom: 1%;
   margin-bottom: 0%;
+  margin-left: 10%;  
 }
 
-.interface div, .interface button{
+.interface button{
   margin: 1% 10% 1% 10%;
 }
 
 #playingfield{
   border-radius: 30px;
   background-color: rgba(27.5, 49.4, 28.6, 0.3);
+  margin: 1% 10% 1% 10%;
 }
 
 .container {
@@ -129,22 +131,14 @@ input:invalid {
 }
 
 .item {
-  height: 8rem;
-  cursor: pointer;
-  text-align: center;
-}
-
-
-
-.item {
   opacity: 1;
-  -webkit-transition: opacity 0.5s ease-in-out;
-  -moz-transition: opacity 0.5s ease-in-out;
-  -ms-transition: opacity 0.5s ease-in-out;
-  -o-transition: opacity 0.5 ease-in-out;
   transition: opacity 0.5s ease-in-out;
   max-width: 20%;
-  min-width: 5%;
+  min-width: 10%;
+  opacity: 1;
+  height: 8rem;
+  cursor: pointer;  
+  text-align: center;
 }
 
 .item.fade{
@@ -262,7 +256,7 @@ input:invalid {
 }
 
 .cercle{
-  margin: 0 0 0 2%;
+  margin: 1% 10% 0 2%;
   width: 40px;
   height: 40px;
   border-radius: 20px;
