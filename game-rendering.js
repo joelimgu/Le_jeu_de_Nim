@@ -20,6 +20,17 @@ function startTurn() {
     if (!playerHasPlayed()) { // if the player hasn't removed an element don't pass turn
         return;
     }
+    console.log("turn");
+    // @ts-ignore
+    document.getElementById('flash').style.display = "inline";
+    // @ts-ignore
+    document.getElementById('flash').style.removeProperty("animation");
+    // @ts-ignore
+    document.getElementById('flash').style.animation = "fadeinout .5s ease-in forwards;";
+    setTimeout(() => {
+        // @ts-ignore
+        document.getElementById('flash').style.display = "none";
+    }, 500);
     if (playerPlaying === "player1Moves") {
         playerPlaying = "player2Moves";
         gameHistory.player2Moves.push([]);
