@@ -17,6 +17,7 @@ function playerHasPlayed() {
   next turn moves.
  */
 function startTurn() {
+    var _a, _b;
     if (!playerHasPlayed()) { // if the player hasn't removed an element don't pass turn
         return;
     }
@@ -36,12 +37,12 @@ function startTurn() {
         gameHistory.player2Moves.push([]);
         gameHistory.player1Moves.push([]);
         // @ts-ignore
-        document.getElementById("turnIndicator").style.background = "#596eff";
+        (_a = document.getElementById("turnIndicator")) === null || _a === void 0 ? void 0 : _a.style.background = "#596eff";
     }
     else {
         playerPlaying = "player1Moves";
         // @ts-ignore
-        document.getElementById("turnIndicator").style.background = "#fb5043";
+        (_b = document.getElementById("turnIndicator")) === null || _b === void 0 ? void 0 : _b.style.background = "#fb5043";
     }
     gameHistory.turn += 1;
     gameHistory[playerPlaying].push([...playerMoves]);
