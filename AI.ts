@@ -57,16 +57,18 @@ function randInterval(a: number ,b: number): number {
     return Math.floor(Math.random()*b) + a
 }
 
-/**
- * try removing one by one all the elements in all the lines
- * until we find an optimal move.
- * An optimal move is defined by having and XORSum un 0...0
- *
- * @param game - number[]
- * @return the optimal move to play
- */
-function findMove(game: number[], difficulty: number | undefined): {line: number, nbToRemove: number} {
-    let move: {line: number, nbToRemove: number} | undefined = undefined
+function playRandomMove() {
+    let aux = [...game]
+    let randLine = randInterval(0, aux.length - 1);
+    while ( aux[randLine] === 0 ) {
+        randLine = randInterval(0, aux.length - 1);
+    }
+    console.log("made random move")
+    return {line: randLine, nbToRemove: randInterval(1, aux[randLine])}
+}
+
+function playEfficientMove(game: number[]) {
+    let move = undefined
     for ( let l = 0; l < game.length; l++ ) {
         for ( let n = 1; n <= game[l] ; n++ ) {
             let aux = [...game] // create a copy of the array
@@ -82,13 +84,32 @@ function findMove(game: number[], difficulty: number | undefined): {line: number
         }
     }
     if ( !move ) {
-        let aux = [...game]
-        let randLine = randInterval(0, aux.length - 1);
-        while ( aux[randLine] === 0 ) {
-            randLine = randInterval(0, aux.length - 1);
+        move = playRandomMove()
+    }
+    return move
+}
+
+/**
+ * try removing one by one all the elements in all the lines
+ * until we find an optimal move.
+ * An optimal move is defined by having and XORSum un 0...0
+ *
+ * @param game - number[]
+ * @return the optimal move to play
+ */
+function findMove(game: number[], difficulty: number | undefined): {line: number, nbToRemove: number} {
+    let move: {line: number, nbToRemove: number} | undefined = undefined
+
+    if ( difficulty === 0 ) {
+        move = playRandomMove()
+    } else if ( difficulty === 1 ) {
+        if ( Math.random() < .5 ) {
+            move = playRandomMove()
+        } else {
+            move = playEfficientMove(game)
         }
-        console.log("made random move")
-        move = {line: randLine, nbToRemove: randInterval(1, aux[randLine])}
+    } else {
+        move = playEfficientMove(game)
     }
     return move
 }

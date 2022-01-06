@@ -47,15 +47,16 @@ function theMoveIsOptimal(list) {
 function randInterval(a, b) {
     return Math.floor(Math.random() * b) + a;
 }
-/**
- * try removing one by one all the elements in all the lines
- * until we find an optimal move.
- * An optimal move is defined by having and XORSum un 0...0
- *
- * @param game - number[]
- * @return the optimal move to play
- */
-function findMove(game, difficulty) {
+function playRandomMove() {
+    let aux = [...game];
+    let randLine = randInterval(0, aux.length - 1);
+    while (aux[randLine] === 0) {
+        randLine = randInterval(0, aux.length - 1);
+    }
+    console.log("made random move");
+    return { line: randLine, nbToRemove: randInterval(1, aux[randLine]) };
+}
+function playEfficientMove(game) {
     let move = undefined;
     for (let l = 0; l < game.length; l++) {
         for (let n = 1; n <= game[l]; n++) {
@@ -72,13 +73,33 @@ function findMove(game, difficulty) {
         }
     }
     if (!move) {
-        let aux = [...game];
-        let randLine = randInterval(0, aux.length - 1);
-        while (aux[randLine] === 0) {
-            randLine = randInterval(0, aux.length - 1);
+        move = playRandomMove();
+    }
+    return move;
+}
+/**
+ * try removing one by one all the elements in all the lines
+ * until we find an optimal move.
+ * An optimal move is defined by having and XORSum un 0...0
+ *
+ * @param game - number[]
+ * @return the optimal move to play
+ */
+function findMove(game, difficulty) {
+    let move = undefined;
+    if (difficulty === 0) {
+        move = playRandomMove();
+    }
+    else if (difficulty === 1) {
+        if (Math.random() < .5) {
+            move = playRandomMove();
         }
-        console.log("made random move");
-        move = { line: randLine, nbToRemove: randInterval(1, aux[randLine]) };
+        else {
+            move = playEfficientMove(game);
+        }
+    }
+    else {
+        move = playEfficientMove(game);
     }
     return move;
 }
