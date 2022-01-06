@@ -41,8 +41,12 @@ function startTurn() {
         playerPlaying = "player2Moves"
         gameHistory.player2Moves.push([])
         gameHistory.player1Moves.push([])
+        // @ts-ignore
+        document.getElementById("turnIndicator").style.background = "#596eff"
     } else {
         playerPlaying = "player1Moves"
+        // @ts-ignore
+        document.getElementById("turnIndicator").style.background = "#fb5043"
     }
     gameHistory.turn += 1;
     gameHistory[playerPlaying].push([...playerMoves])
