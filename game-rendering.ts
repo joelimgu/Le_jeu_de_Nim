@@ -1,7 +1,8 @@
 
 type playerMoving = "player1Moves" | "player2Moves"
 
-const game = [1,3,10]
+// const MYAPPVARS = {}
+const game = [1,3,4]
 let updatedGame = [...game] // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0)
 const gameHistory: { player2Moves: number[][]; player1Moves: number[][]; turn: number } = {
@@ -10,6 +11,9 @@ const gameHistory: { player2Moves: number[][]; player1Moves: number[][]; turn: n
     player2Moves: []
 }
 let playerPlaying: playerMoving = "player1Moves";
+
+
+
 
 function playerHasPlayed() {
     return gameHistory[playerPlaying][gameHistory.turn].reduce((prev, curr) =>  curr+prev, 0) > 0
@@ -23,6 +27,17 @@ function startTurn() {
     if ( !playerHasPlayed() ) { // if the player hasn't removed an element don't pass turn
         return;
     }
+    console.log("turn")
+    // @ts-ignore
+    document.getElementById('flash').style.display = "inline"
+    // @ts-ignore
+    document.getElementById('flash').style.removeProperty("animation")
+    // @ts-ignore
+    document.getElementById('flash').style.animation = "fadeinout .5s ease-in forwards;"
+    setTimeout(() => {
+        // @ts-ignore
+        document.getElementById('flash').style.display = "none"
+    }, 500)
 
     if ( playerPlaying === "player1Moves" ) {
         playerPlaying = "player2Moves"
@@ -45,7 +60,16 @@ function startTurn() {
  * Ends the game
  */
 function endGame() {
-    alert(`Player ${playerPlaying} wins! 🥳`)
+    // @ts-ignore
+    document.getElementsByClassName("modal")[0].style.display = "inline-flex"
+    if ( playerPlaying === "player1Moves" ) {
+        // @ts-ignore
+        document.getElementById("endMessage").innerText = "Player 1 wins!"
+    } else {
+        // @ts-ignore
+        document.getElementById("endMessage").innerText = "Player 2 wins!"
+    }
+    // alert(`Player ${playerPlaying} wins! 🥳`)
 }
 
 function hasGameEnded(): boolean {
@@ -66,7 +90,10 @@ function playTurn(element: any) {
     if ( !playerHasPlayed() || playerIsPlayingInTheSameLine ) {
         gameHistory[playerPlaying][gameHistory.turn][lineID] += 1;
         updatedGame[lineID] -= 1
-        element.remove()
+        element.classList.toggle("fade")
+        setTimeout(() => { // arrow function passes context so ok
+            element.remove()
+        }, 500)
     }
     if ( hasGameEnded() ) {
         endGame()
@@ -165,7 +192,7 @@ function removeStick(line: number) {
 createGame(game)
 
 function makeAIMove(game: number[]) {
-    const move: { line: number; nbToRemove: number } = findMove(game)
+    const move: { line: number; nbToRemove: number } = findMove(game, undefined)
     console.log(`AI is making the move: line: ${move.line} quantity: ${move.nbToRemove}`)
     for ( let i = 0; i<move.nbToRemove; i++ ) { // remove all the sticks
         removeStick(move.line)
