@@ -1,22 +1,19 @@
-let tab=[];
 function play()
 {
-    document.getElementById("set").style.display="none";
+    document.getElementById("set").style.display="none"; 
     document.getElementById("interface").style.display="inline";
-    document.getElementById("flash").style.display="none";
-    game = tab
-    updatedGame = [...game]
-    createGame(tab);
-
+    document.getElementById("flash").style.display="none"; 
+    // createGame(game);
 }
 function param()
 {
-    document.getElementById("set").style.display="inline";
+    document.getElementById("set").style.display="inline"; 
     document.getElementById("interface").style.display="none";
-    document.getElementById("flash").style.display="none";
-
-
+    document.getElementById("flash").style.display="none"; 
 }
+
+
+let tab=[];
 function removeRow(mouseEvent) {
     //console.log(tab);
     tab.splice(mouseEvent.target.parentElement.parentElement.firstChild.value-1,1);
@@ -59,11 +56,11 @@ function displaygrid(){
 function addRow(){
     
     const n=document.getElementById("columnNumber").value;
-    if (n <=5 && n >=0){
+    if (n <=10 && n >=0){
         tab.push(n); 
         displaygrid();
     }
-    else {alert("Valeur non comprise entre 0 et 5! C'est la loi dsl")}
+    else {alert("Valeur non comprise entre 0 et 10! C'est la loi dsl")}
     
 }
 
