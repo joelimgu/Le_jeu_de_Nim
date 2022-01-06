@@ -1,6 +1,6 @@
 "use strict";
 // const MYAPPVARS = {}
-const game = [1, 3, 10];
+const game = [1, 3, 5];
 let updatedGame = [...game]; // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0);
 const gameHistory = {
@@ -20,13 +20,28 @@ function startTurn() {
     if (!playerHasPlayed()) { // if the player hasn't removed an element don't pass turn
         return;
     }
+    console.log("turn");
+    // @ts-ignore
+    document.getElementById('flash').style.display = "inline";
+    // @ts-ignore
+    document.getElementById('flash').style.removeProperty("animation");
+    // @ts-ignore
+    document.getElementById('flash').style.animation = "fadeinout .5s ease-in forwards;";
+    setTimeout(() => {
+        // @ts-ignore
+        document.getElementById('flash').style.display = "none";
+    }, 500);
     if (playerPlaying === "player1Moves") {
         playerPlaying = "player2Moves";
         gameHistory.player2Moves.push([]);
         gameHistory.player1Moves.push([]);
+        // @ts-ignore
+        document.getElementById("turnIndicator").style.background = "#596eff";
     }
     else {
         playerPlaying = "player1Moves";
+        // @ts-ignore
+        document.getElementById("turnIndicator").style.background = "#fb5043";
     }
     gameHistory.turn += 1;
     gameHistory[playerPlaying].push([...playerMoves]);
@@ -39,7 +54,18 @@ function startTurn() {
  * Ends the game
  */
 function endGame() {
-    alert(`Player ${playerPlaying} wins! 🥳`);
+    // @ts-ignore
+    document.getElementsByClassName("modal")[0].style.display = "inline-flex";
+    if (playerPlaying === "player1Moves") {
+        // @ts-ignore
+        document.getElementById("endMessage").innerText = "Player 1 wins!";
+    }
+    else {
+        // @ts-ignore
+        document.getElementById("endMessage").innerText = "Player 2 wins!";
+    }
+    // alert(`Player ${playerPlaying} wins! 🥳`)
+    console.log("game ended");
 }
 function hasGameEnded() {
     // returns true if all the elements of the array are 0
@@ -111,6 +137,7 @@ function createLine(id) {
     @param ln number
  */
 function addChild(ln) {
+    console.log(`adding chind in ${ln}`);
     const lines = document.getElementById("playingfield");
     // @ts-ignore
     if (!Array.from(lines.children)[ln])
@@ -137,6 +164,8 @@ function addChild(ln) {
  */
 function createGame(game) {
     game.forEach((nbSticks, index) => {
+        console.log(nbSticks);
+        console.log("nb");
         for (let i = 0; i < nbSticks; i++)
             addChild(index);
     });

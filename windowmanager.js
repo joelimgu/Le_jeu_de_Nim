@@ -3,7 +3,7 @@ function play()
     document.getElementById("set").style.display="none"; 
     document.getElementById("interface").style.display="inline";
     document.getElementById("flash").style.display="none"; 
-    createGame(game);
+    // createGame(game);
 }
 function param()
 {

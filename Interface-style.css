@@ -111,7 +111,7 @@ input:invalid {
 .interface h2{
   padding-top: 1%;
   padding-bottom: 1%;
-  margin: 0 10% 0 10%;
+  margin-bottom: 0%;
 }
 
 .interface div, .interface button{
@@ -134,9 +134,21 @@ input:invalid {
   text-align: center;
 }
 
-.item img {
-    max-width: 20%;
-    min-width: 5%;
+
+
+.item {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5 ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+  max-width: 20%;
+  min-width: 5%;
+}
+
+.item.fade{
+  opacity:0;
 }
  
 .pop {  
@@ -180,15 +192,17 @@ input:invalid {
 }
 
   
+#modal {
+  display:none;
+}
 
 .modal {
-  display:none;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   width: auto;
-  display: inline-flex;
+  /*display: inline-flex;*/
   flex-direction: column;
   align-items: center;
   padding: 1.6rem 3rem;
@@ -199,13 +213,14 @@ input:invalid {
   
 }
 .message {
-  font-size:1.1rem;
+  text-align: center;
+  font-size:2rem;
   margin-bottom: 1.6rem;
   margin-top: 0;
 }
 .btn {
   color:inherit;
-    font-family:inherit;
+  font-family:inherit;
   font-size: inherit;
   background: white;
   padding: 0.3rem 3.4rem;
@@ -224,22 +239,38 @@ input:invalid {
   transform: translate(-0.4rem, -0.4rem);
 }
 
-.item {
-  opacity: 1;
-  -webkit-transition: opacity 0.5s ease-in-out;
-  -moz-transition: opacity 0.5s ease-in-out;
-  -ms-transition: opacity 0.5s ease-in-out;
-  -o-transition: opacity 0.5 ease-in-out;
-  transition: opacity 0.5s ease-in-out;
+.btn:active {
+  box-shadow: 0 0 0 black;
+  transform: translate(0, 0);
 }
 
-.item.fade{
-  opacity:0;
+.options {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
+
+
 
 .set h2{
   margin-left: 10%;
 }
+
+.box{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cercle{
+  margin: 0 0 0 2%;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: #fb5043;
+  /* changement de couleur #596eff*/
+}
+
+
 /*.container {*/
 /*    flex-direction: row;*/
 /*    flex-wrap: wrap;*/

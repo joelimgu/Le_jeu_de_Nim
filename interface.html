@@ -12,6 +12,7 @@
 </head>
 
 <body onload="param()">
+    <div id="flash"></div>
     <header>
         <div class="header">  
             <div><a href="index.html"><img src="./Assets/Images/home.png" alt="Home" width="100"/></a></div>  
@@ -47,7 +48,10 @@
             </div>
         </section>
         <section id="interface" class="interface">
-            <H2>Interface</H2>
+            <div class="box">
+                <H2>Interface</H2>
+                <div class="cercle" id="turnIndicator"></div>
+            </div>
             <div id="playingfield">
                 <!--Du code va être rajouté avec JS-->
             </div>
@@ -57,7 +61,7 @@
           
 
 <div class="modal">
-    <p class="message">Game Over</p>
+    <p class="message" id="endMessage"></p>
     <div class="options">
       <button class="btn" onclick="window.location.href='./interface.html'">Replay</button>
       <button class="btn" onclick="window.location.href='./index.html'">End Game</button>
