@@ -54,8 +54,10 @@ function startTurn() {
     if ( /ia/g.test(document.URL) ) { // if the AI should play
         makeAIMove(updatedGame)
         startTurn()
+        if ( hasGameEnded() ) {
+            endGame()
+        }
     }
-
 }
 
 /**
