@@ -64,15 +64,19 @@ function startTurn() {
  * Ends the game
  */
 function endGame() {
-    // @ts-ignore
+    let winingPlayer;
     document.getElementsByClassName("modal")[0].style.display = "inline-flex"
     if ( playerPlaying === "player1Moves" ) {
-        // @ts-ignore
-        document.getElementById("endMessage").innerText = "Player 1 wins!"
+        winingPlayer = "Red"
     } else {
-        // @ts-ignore
-        document.getElementById("endMessage").innerText = "Player 2 wins!"
+        if ( /ia/g.test(document.URL) ) {
+          winingPlayer = "Computer"
+        } else {
+            winingPlayer = "Blue"
+        }
     }
+    // @ts-ignore
+    document.getElementById("endMessage").innerText = `${winingPlayer} wins! 🥳`
     // alert(`Player ${playerPlaying} wins! 🥳`)
     console.log("game ended")
 }
