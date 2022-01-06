@@ -1,19 +1,22 @@
+let tab=[];
 function play()
 {
-    document.getElementById("set").style.display="none"; 
+    document.getElementById("set").style.display="none";
     document.getElementById("interface").style.display="inline";
-    document.getElementById("flash").style.display="none"; 
-    // createGame(game);
+    document.getElementById("flash").style.display="none";
+    game = tab
+    updatedGame = [...game]
+    createGame(tab);
+
 }
 function param()
 {
-    document.getElementById("set").style.display="inline"; 
+    document.getElementById("set").style.display="inline";
     document.getElementById("interface").style.display="none";
-    document.getElementById("flash").style.display="none"; 
+    document.getElementById("flash").style.display="none";
+
+
 }
-
-
-let tab=[];
 function removeRow(mouseEvent) {
     //console.log(tab);
     tab.splice(mouseEvent.target.parentElement.parentElement.firstChild.value-1,1);
