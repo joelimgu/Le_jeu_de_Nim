@@ -9,9 +9,13 @@
     
     <title>Jeu de Nim</title>
     <link rel="shortcut icon" href="./Assets/Images/icone.png">
+    <script>
+        let gameArray=[]; 
+    </script>
 </head>
 
 <body onload="param()">
+    <div id="flash"></div>
     <header>
         <div class="header">  
             <div><a href="index.html"><img src="./Assets/Images/home.png" alt="Home" width="100"/></a></div>  
@@ -36,7 +40,7 @@
                             <option value="impossible" class="Impossible">Impossible</option>
                         </select>
                     </div>
-                    <div><button type="submit" onclick="play()">Confirmer</button><button type="reset" onclick="reset()">Reinitialiser</button></div>
+                    <div><button type="submit" onclick="getArray(gameArray);play()">Confirmer</button><button type="reset" onclick="reset()">Reinitialiser</button></div>
                 </div>
                 <div id="array">
                     <table id="disparray">
@@ -77,7 +81,7 @@
     <footer>
         <div>Credits : MOULIN Romain | SAAD BEN SALAH Mongi | IMBERGAMO GUASCH Joel | ROBERT Gwenael</div>
     </footer>
-      
+    
 </body>
 
 <script src="AI.js"></script>

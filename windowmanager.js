@@ -2,11 +2,14 @@ function play()
 {
     document.getElementById("set").style.display="none"; 
     document.getElementById("interface").style.display="inline";
+    document.getElementById("flash").style.display="none"; 
+    createGame(game);
 }
 function param()
 {
     document.getElementById("set").style.display="inline"; 
     document.getElementById("interface").style.display="none";
+    document.getElementById("flash").style.display="none"; 
 }
 
 
@@ -54,9 +57,16 @@ function addRow(){
     
     const n=document.getElementById("columnNumber").value;
     if (n <=10 && n >=0){
-        tab.push(n); 
+        game.push(n); 
         displaygrid();
     }
     else {alert("Valeur non comprise entre 0 et 10! C'est la loi dsl")}
     
 }
+
+function getArray(array){
+    for(i of tab){
+        array.push(i);
+    }
+}
+
