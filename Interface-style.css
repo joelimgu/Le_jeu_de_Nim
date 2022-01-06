@@ -188,7 +188,7 @@ input:invalid {
   top: 50%;
   transform: translate(-50%, -50%);
   width: auto;
-  display: inline-flex;
+  /*display: inline-flex;*/
   flex-direction: column;
   align-items: center;
   padding: 1.6rem 3rem;
