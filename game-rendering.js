@@ -1,4 +1,5 @@
 "use strict";
+// const MYAPPVARS = {}
 const game = [1, 3, 10];
 let updatedGame = [...game]; // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0);
@@ -8,11 +9,17 @@ const gameHistory = {
     player2Moves: []
 };
 let playerPlaying = "player1Moves";
+function playerHasPlayed() {
+    return gameHistory[playerPlaying][gameHistory.turn].reduce((prev, curr) => curr + prev, 0) > 0;
+}
 /**
   Changes the player and go to the following turn, adding at the same time the corresponding arrays in order to store
   next turn moves.
  */
 function startTurn() {
+    if (!playerHasPlayed()) { // if the player hasn't removed an element don't pass turn
+        return;
+    }
     if (playerPlaying === "player1Moves") {
         playerPlaying = "player2Moves";
         gameHistory.player2Moves.push([]);
@@ -23,6 +30,21 @@ function startTurn() {
     }
     gameHistory.turn += 1;
     gameHistory[playerPlaying].push([...playerMoves]);
+    if (/ia/g.test(document.URL)) { // if the AI should play
+        makeAIMove(updatedGame);
+        startTurn();
+    }
+}
+/**
+ * Ends the game
+ */
+function endGame() {
+    alert(`Player ${playerPlaying} wins! 🥳`);
+}
+function hasGameEnded() {
+    // returns true if all the elements of the array are 0
+    const arrIsAll0 = (arr) => arr.reduce((prev, current) => current === 0 && prev, true);
+    return arrIsAll0(updatedGame);
 }
 /**
  gets the element containing the image and notes the corresponding move in the gameHistory Object.
@@ -31,17 +53,18 @@ function playTurn(element) {
     // get the line ID
     const id = element.className;
     const lineID = id[id.length - 1];
-    const playerHasPlayed = gameHistory[playerPlaying][gameHistory.turn].reduce((prev, curr) => curr + prev, 0) > 0;
+    // const playerHasPlayed = gameHistory[playerPlaying][gameHistory.turn].reduce((prev, curr) =>  curr+prev, 0) > 0
     const playerIsPlayingInTheSameLine = gameHistory[playerPlaying][gameHistory.turn][lineID] > 0;
-    if (!playerHasPlayed || playerIsPlayingInTheSameLine) {
+    if (!playerHasPlayed() || playerIsPlayingInTheSameLine) {
         gameHistory[playerPlaying][gameHistory.turn][lineID] += 1;
         updatedGame[lineID] -= 1;
-        element.remove();
+        element.classList.toggle("fade");
+        setTimeout(() => {
+            element.remove();
+        }, 500);
     }
-    if ( game.reduce((ant, curr) => ant + curr ) === 0 ) {
-        // game has ended
-        // todo end game
-        console.log(`Game ended! 🥳 player ${ playerPlaying === "player1Moves"? "1" : "2"} wins`)
+    if (hasGameEnded()) {
+        endGame();
     }
 }
 /**
@@ -108,7 +131,6 @@ function addChild(ln) {
 //     return playerMoves
 // }
 /**
-
     given an array where the index represents the line and the value the number of sticks in that line it creates
     all the htlm structure required to play the game.
     @param game Array<number>
@@ -128,23 +150,22 @@ function createGame(game) {
 function removeStick(line) {
     const lineElement = document.getElementById(`line-${line}`);
     lineElement === null || lineElement === void 0 ? void 0 : lineElement.children[0].remove(); // remove a stick from the line if the line exists
+    updatedGame[line] -= 1;
 }
 createGame(game);
 function makeAIMove(game) {
-    const move = findMove(game);
+    const move = findMove(game, undefined);
+    console.log(`AI is making the move: line: ${move.line} quantity: ${move.nbToRemove}`);
     for (let i = 0; i < move.nbToRemove; i++) { // remove all the sticks
         removeStick(move.line);
     }
 }
-
-
+/**
+ * An event listener listening for the "e" key, so it's easier to end turn.
+ */
 window.addEventListener("keypress", (event) => {
-    if ( event.code === "KeyE" ) startTurn();
-})
-
-// {lineNumber: 5, deletedElements: 3}
-
-function PopUp (game) {
-    if 
-}
-createGame(game)
+    console.log(event.key);
+    if (event.key === "e") {
+        startTurn();
+    }
+});
