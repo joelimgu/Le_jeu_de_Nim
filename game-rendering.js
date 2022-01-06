@@ -1,6 +1,6 @@
 "use strict";
 // const MYAPPVARS = {}
-const game = [1, 3, 10];
+const game = [1, 3, 4];
 let updatedGame = [...game]; // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0);
 const gameHistory = {
@@ -39,7 +39,17 @@ function startTurn() {
  * Ends the game
  */
 function endGame() {
-    alert(`Player ${playerPlaying} wins! 🥳`);
+    // @ts-ignore
+    document.getElementsByClassName("modal")[0].style.display = "inline-flex";
+    if (playerPlaying === "player1Moves") {
+        // @ts-ignore
+        document.getElementById("endMessage").innerText = "Player 1 wins!";
+    }
+    else {
+        // @ts-ignore
+        document.getElementById("endMessage").innerText = "Player 2 wins!";
+    }
+    // alert(`Player ${playerPlaying} wins! 🥳`)
 }
 function hasGameEnded() {
     // returns true if all the elements of the array are 0

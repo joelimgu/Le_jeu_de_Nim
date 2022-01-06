@@ -2,7 +2,7 @@
 type playerMoving = "player1Moves" | "player2Moves"
 
 // const MYAPPVARS = {}
-const game = [1,3,10]
+const game = [1,3,4]
 let updatedGame = [...game] // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0)
 const gameHistory: { player2Moves: number[][]; player1Moves: number[][]; turn: number } = {
@@ -49,7 +49,16 @@ function startTurn() {
  * Ends the game
  */
 function endGame() {
-    alert(`Player ${playerPlaying} wins! 🥳`)
+    // @ts-ignore
+    document.getElementsByClassName("modal")[0].style.display = "inline-flex"
+    if ( playerPlaying === "player1Moves" ) {
+        // @ts-ignore
+        document.getElementById("endMessage").innerText = "Player 1 wins!"
+    } else {
+        // @ts-ignore
+        document.getElementById("endMessage").innerText = "Player 2 wins!"
+    }
+    // alert(`Player ${playerPlaying} wins! 🥳`)
 }
 
 function hasGameEnded(): boolean {
@@ -155,9 +164,6 @@ function createGame(game: number[]) {
     game.forEach( (nbSticks, index) => {
         for (let i = 0; i<nbSticks; i++) addChild(index);
     })
-
-
-
 }
 
 

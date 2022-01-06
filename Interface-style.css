@@ -138,6 +138,19 @@ input:invalid {
     max-width: 20%;
     min-width: 5%;
 }
+
+.item {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5 ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.item.fade{
+  opacity:0;
+}
  
 .pop {  
  
@@ -180,9 +193,11 @@ input:invalid {
 }
 
   
+#modal {
+  display:none;
+}
 
 .modal {
-  display:none;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -205,7 +220,7 @@ input:invalid {
 }
 .btn {
   color:inherit;
-    font-family:inherit;
+  font-family:inherit;
   font-size: inherit;
   background: white;
   padding: 0.3rem 3.4rem;
