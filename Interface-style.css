@@ -114,7 +114,6 @@ input:invalid {
   margin: 0 10% 0 10%;
 }
 
-
 .interface div, .interface button{
   margin: 1% 10% 1% 10%;
 }
@@ -138,6 +137,19 @@ input:invalid {
 .item img {
     max-width: 20%;
     min-width: 5%;
+}
+
+.item {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -moz-transition: opacity 0.5s ease-in-out;
+  -ms-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5 ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.item.fade{
+  opacity:0;
 }
 
 .set h2{
