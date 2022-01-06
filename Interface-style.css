@@ -111,7 +111,7 @@ input:invalid {
 .interface h2{
   padding-top: 1%;
   padding-bottom: 1%;
-  margin: 0 10% 0 10%;
+  margin-bottom: 0%;
 }
 
 .interface div, .interface button{
@@ -134,10 +134,7 @@ input:invalid {
   text-align: center;
 }
 
-.item img {
-    max-width: 20%;
-    min-width: 5%;
-}
+
 
 .item {
   opacity: 1;
@@ -146,15 +143,34 @@ input:invalid {
   -ms-transition: opacity 0.5s ease-in-out;
   -o-transition: opacity 0.5 ease-in-out;
   transition: opacity 0.5s ease-in-out;
+  max-width: 20%;
+  min-width: 5%;
 }
 
 .item.fade{
   opacity:0;
 }
 
+
 .set h2{
   margin-left: 10%;
 }
+
+.box{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cercle{
+  margin: 0 0 0 2%;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: #fb5043;
+  /* changement de couleur #596eff*/
+}
+
+
 /*.container {*/
 /*    flex-direction: row;*/
 /*    flex-wrap: wrap;*/

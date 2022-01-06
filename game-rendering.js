@@ -1,5 +1,5 @@
 "use strict";
-const game = [1, 3, 5];
+const game = [1, 3, 10];
 let updatedGame = [...game]; // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0);
 const gameHistory = {
