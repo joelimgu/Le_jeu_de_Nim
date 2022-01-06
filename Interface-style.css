@@ -151,7 +151,14 @@ input:invalid {
   background-size: 100%;
   background-position: 0 0;
   animation: slide 4s infinite linear;
-} 
+}     
+#flash{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color:white;
+  animation: fadeinout .5s ease-in forwards;
+}
 @keyframes slide {
   from {
     background-position: 0 0;
@@ -161,7 +168,19 @@ input:invalid {
     background-position: -120px 60px;
   }
 }
-
+@keyframes fadeinout {
+  0% {
+    display:inline; 
+    opacity: 0; 
+  }
+  50%{
+    opacity: .7; 
+  }
+  100% {
+    opacity:0;
+    display: none;
+  }
+}
 .modal {
   
   position: absolute;
