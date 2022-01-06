@@ -20,7 +20,7 @@ function playerHasPlayed() {
   next turn moves.
  */
 function startTurn() {
-    if ( !playerHasPlayed() ){ // if the player hasn't removed an element don't pass turn
+    if ( !playerHasPlayed() ) { // if the player hasn't removed an element don't pass turn
         return;
     }
 
@@ -33,6 +33,12 @@ function startTurn() {
     }
     gameHistory.turn += 1;
     gameHistory[playerPlaying].push([...playerMoves])
+
+    if ( /ia/g.test(document.URL) ) { // if the AI should play
+        makeAIMove(updatedGame)
+        startTurn()
+    }
+
 }
 
 /**
@@ -40,6 +46,12 @@ function startTurn() {
  */
 function endGame() {
     alert(`Player ${playerPlaying} wins! 🥳`)
+}
+
+function hasGameEnded(): boolean {
+    // returns true if all the elements of the array are 0
+    const arrIsAll0 = (arr: number[]) => arr.reduce((prev, current) => current === 0 && prev, true)
+    return arrIsAll0(updatedGame)
 }
 
 /**
@@ -56,9 +68,7 @@ function playTurn(element: any) {
         updatedGame[lineID] -= 1
         element.remove()
     }
-    // returns true if all the elements of the array are 0
-    const arrIsAll0 = (arr: number[]) => arr.reduce((prev, current) => current === 0 && prev, true)
-    if ( arrIsAll0(updatedGame) ) {
+    if ( hasGameEnded() ) {
         endGame()
     }
 }
@@ -150,11 +160,13 @@ function createGame(game: number[]) {
 function removeStick(line: number) {
     const lineElement: HTMLElement | null = document.getElementById(`line-${line}`)
     lineElement?.children[0].remove() // remove a stick from the line if the line exists
+    updatedGame[line] -= 1
 }
 createGame(game)
 
 function makeAIMove(game: number[]) {
     const move: { line: number; nbToRemove: number } = findMove(game)
+    console.log(`AI is making the move: line: ${move.line} quantity: ${move.nbToRemove}`)
     for ( let i = 0; i<move.nbToRemove; i++ ) { // remove all the sticks
         removeStick(move.line)
     }

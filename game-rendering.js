@@ -29,12 +29,21 @@ function startTurn() {
     }
     gameHistory.turn += 1;
     gameHistory[playerPlaying].push([...playerMoves]);
+    if (/ia/g.test(document.URL)) { // if the AI should play
+        makeAIMove(updatedGame);
+        startTurn();
+    }
 }
 /**
  * Ends the game
  */
 function endGame() {
     alert(`Player ${playerPlaying} wins! 🥳`);
+}
+function hasGameEnded() {
+    // returns true if all the elements of the array are 0
+    const arrIsAll0 = (arr) => arr.reduce((prev, current) => current === 0 && prev, true);
+    return arrIsAll0(updatedGame);
 }
 /**
  gets the element containing the image and notes the corresponding move in the gameHistory Object.
@@ -50,9 +59,7 @@ function playTurn(element) {
         updatedGame[lineID] -= 1;
         element.remove();
     }
-    // returns true if all the elements of the array are 0
-    const arrIsAll0 = (arr) => arr.reduce((prev, current) => current === 0 && prev, true);
-    if (arrIsAll0(updatedGame)) {
+    if (hasGameEnded()) {
         endGame();
     }
 }
@@ -139,10 +146,12 @@ function createGame(game) {
 function removeStick(line) {
     const lineElement = document.getElementById(`line-${line}`);
     lineElement === null || lineElement === void 0 ? void 0 : lineElement.children[0].remove(); // remove a stick from the line if the line exists
+    updatedGame[line] -= 1;
 }
 createGame(game);
 function makeAIMove(game) {
     const move = findMove(game);
+    console.log(`AI is making the move: line: ${move.line} quantity: ${move.nbToRemove}`);
     for (let i = 0; i < move.nbToRemove; i++) { // remove all the sticks
         removeStick(move.line);
     }
