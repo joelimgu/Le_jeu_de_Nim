@@ -5,8 +5,10 @@ function play()
     document.getElementById("flash").style.display="none"; 
     game = tab
     updatedGame = [...game]
+    difficulty = document.getElementById("difficulte").value;
     createGame(tab);
 }
+
 function param()
 {
     document.getElementById("set").style.display="inline"; 

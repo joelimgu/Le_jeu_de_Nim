@@ -1,6 +1,7 @@
 "use strict";
 // const MYAPPVARS = {}
 let game = [1, 3, 5];
+let difficulty = "Facile";
 let updatedGame = [...game]; // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0);
 const gameHistory = {
@@ -198,7 +199,7 @@ function removeStick(line) {
 }
 // createGame(game)
 function makeAIMove(game) {
-    const move = findMove(game, undefined);
+    const move = findMove(game, difficulty);
     console.log(`AI is making the move: line: ${move.line} quantity: ${move.nbToRemove}`);
     for (let i = 0; i < move.nbToRemove; i++) { // remove all the sticks
         removeStick(move.line);

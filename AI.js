@@ -47,7 +47,8 @@ function theMoveIsOptimal(list) {
 function randInterval(a, b) {
     return Math.floor(Math.random() * b) + a;
 }
-function playRandomMove() {
+function playRandomMove(game) {
+    console.log("played rand");
     let aux = [...game];
     let randLine = randInterval(0, aux.length - 1);
     while (aux[randLine] === 0) {
@@ -73,7 +74,7 @@ function playEfficientMove(game) {
         }
     }
     if (!move) {
-        move = playRandomMove();
+        move = playRandomMove(game);
     }
     return move;
 }
@@ -87,12 +88,12 @@ function playEfficientMove(game) {
  */
 function findMove(game, difficulty) {
     let move = undefined;
-    if (difficulty === 0) {
-        move = playRandomMove();
+    if (difficulty === "facile") {
+        move = playRandomMove(game);
     }
-    else if (difficulty === 1) {
+    else if (difficulty === "difficile") {
         if (Math.random() < .5) {
-            move = playRandomMove();
+            move = playRandomMove(game);
         }
         else {
             move = playEfficientMove(game);
