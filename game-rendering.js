@@ -1,6 +1,6 @@
 "use strict";
 // const MYAPPVARS = {}
-const game = [1, 3, 5];
+let game = [1, 3, 5];
 let updatedGame = [...game]; // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0);
 const gameHistory = {
@@ -181,7 +181,7 @@ function removeStick(line) {
     lineElement === null || lineElement === void 0 ? void 0 : lineElement.children[0].remove(); // remove a stick from the line if the line exists
     updatedGame[line] -= 1;
 }
-createGame(game);
+// createGame(game)
 function makeAIMove(game) {
     const move = findMove(game, undefined);
     console.log(`AI is making the move: line: ${move.line} quantity: ${move.nbToRemove}`);
