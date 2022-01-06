@@ -7,10 +7,12 @@ type binNumber = Array<0|1> // array of 0's and 1's
 
 // returns the binary expression of an integer as a binNumber type
 function numberToBin(n: number): binNumber {
-    const binStr = n.toString(2)
+    const binStr = n.toString(2) // "0010010"
     // transform the string to array and transform the char to numbers and make TS understand the type correctly
     // we are saying :"trust me it's an array of 1's and 0's"
-    return <Array<0 | 1>>binStr.split('').map((el) => Number(el));
+    return <Array<0 | 1>>binStr // "010100"
+        .split('') // ["0","1",...]
+        .map((el) => Number(el)); // [0,1,0,1...]
 }
 
 function addZerosToBinNumber(sigNum: number, n: binNumber): binNumber {

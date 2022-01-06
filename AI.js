@@ -2,10 +2,12 @@
 // https://iq.opengenus.org/game-of-nim/
 // returns the binary expression of an integer as a binNumber type
 function numberToBin(n) {
-    const binStr = n.toString(2);
+    const binStr = n.toString(2); // "0010010"
     // transform the string to array and transform the char to numbers and make TS understand the type correctly
     // we are saying :"trust me it's an array of 1's and 0's"
-    return binStr.split('').map((el) => Number(el));
+    return binStr // "010100"
+        .split('') // ["0","1",...]
+        .map((el) => Number(el)); // [0,1,0,1...]
 }
 function addZerosToBinNumber(sigNum, n) {
     const len = n.length;
