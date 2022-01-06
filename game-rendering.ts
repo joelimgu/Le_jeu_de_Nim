@@ -2,7 +2,7 @@
 type playerMoving = "player1Moves" | "player2Moves"
 
 // const MYAPPVARS = {}
-const game = [1,3,5]
+let game = [1,3,5]
 let updatedGame = [...game] // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0)
 const gameHistory: { player2Moves: number[][]; player1Moves: number[][]; turn: number } = {
@@ -41,8 +41,12 @@ function startTurn() {
         playerPlaying = "player2Moves"
         gameHistory.player2Moves.push([])
         gameHistory.player1Moves.push([])
+        // @ts-ignore
+        document.getElementById("turnIndicator").style.background = "#596eff"
     } else {
         playerPlaying = "player1Moves"
+        // @ts-ignore
+        document.getElementById("turnIndicator").style.background = "#fb5043"
     }
     gameHistory.turn += 1;
     gameHistory[playerPlaying].push([...playerMoves])
@@ -191,7 +195,8 @@ function removeStick(line: number) {
     lineElement?.children[0].remove() // remove a stick from the line if the line exists
     updatedGame[line] -= 1
 }
-createGame(game)
+
+// createGame(game)
 
 function makeAIMove(game: number[]) {
     const move: { line: number; nbToRemove: number } = findMove(game, undefined)

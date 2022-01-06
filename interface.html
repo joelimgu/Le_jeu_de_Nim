@@ -27,7 +27,7 @@
                 <div id="settings">
                     
                     <!-- doc for the label: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label-->
-                    <div><label for="columnNumber"></label><input type="text" id="columnNumber" name="columnNumber" pattern="[0-9]|10" value="5"><button onclick="addRow()">Ajouter une ligne</button></div>
+                    <div><label for="columnNumber"></label><input type="text" id="columnNumber" name="columnNumber" pattern="[0-5]" value="5"><button onclick="addRow()">Ajouter une ligne</button></div>
                     <div><button type="submit" onclick="play()">Confirmer</button><button type="reset" onclick="reset()">Reinitialiser</button></div>
                 </div>
                 <div id="array">
@@ -50,7 +50,7 @@
         <section id="interface" class="interface">
             <div class="box">
                 <H2>Interface</H2>
-                <div class="cercle"></div>
+                <div class="cercle" id="turnIndicator"></div>
             </div>
             <div id="playingfield">
                 <!--Du code va être rajouté avec JS-->
