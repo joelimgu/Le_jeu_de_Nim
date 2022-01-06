@@ -59,9 +59,15 @@ function startTurn() {
  */
 function endGame() {
     let winingPlayer;
+    // @ts-ignore
     document.getElementsByClassName("modal")[0].style.display = "inline-flex";
     if (playerPlaying === "player1Moves") {
-        winingPlayer = "Red";
+        if (/ia/g.test(document.URL)) {
+            winingPlayer = "You";
+        }
+        else {
+            winingPlayer = "Red";
+        }
     }
     else {
         if (/ia/g.test(document.URL)) {

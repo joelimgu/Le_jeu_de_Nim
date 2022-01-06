@@ -66,7 +66,6 @@ function randInterval(a: number ,b: number): number {
  * @return the optimal move to play
  */
 function findMove(game: number[], difficulty: number | undefined): {line: number, nbToRemove: number} {
-
     let move: {line: number, nbToRemove: number} | undefined = undefined
     for ( let l = 0; l < game.length; l++ ) {
         for ( let n = 1; n <= game[l] ; n++ ) {
