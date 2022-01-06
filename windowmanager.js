@@ -56,11 +56,11 @@ function displaygrid(){
 function addRow(){
     
     const n=document.getElementById("columnNumber").value;
-    if (n <=10 && n >=0){
+    if (n <=5 && n >=0){
         tab.push(n); 
         displaygrid();
     }
-    else {alert("Valeur non comprise entre 0 et 10! C'est la loi dsl")}
+    else {alert("Valeur non comprise entre 0 et 5! C'est la loi dsl")}
     
 }
 
