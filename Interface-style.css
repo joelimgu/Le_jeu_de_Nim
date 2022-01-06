@@ -155,6 +155,7 @@ input:invalid {
   background-color:white;
   animation: fadeinout .5s ease-in forwards;
 }
+} 
 @keyframes slide {
   from {
     background-position: 0 0;
@@ -179,6 +180,9 @@ input:invalid {
 }
 .modal {
   
+
+.modal {
+  display:none;
   position: absolute;
   left: 50%;
   top: 50%;
