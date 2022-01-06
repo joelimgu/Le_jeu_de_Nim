@@ -55,13 +55,8 @@ function randInterval(a, b) {
  * @param game - number[]
  * @return the optimal move to play
  */
-function findMove(game) {
-    console.log("searching solution for:");
-    console.log(game);
+function findMove(game, difficulty) {
     let move = undefined;
-    /*
-
-     */
     for (let l = 0; l < game.length; l++) {
         for (let n = 1; n <= game[l]; n++) {
             let aux = [...game]; // create a copy of the array

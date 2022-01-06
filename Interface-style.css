@@ -130,15 +130,8 @@ input:invalid {
 }
 
 .item {
-  opacity: 1;
   height: 8rem;
-  cursor: pointer;  
-  border: 0.01rem;
-  border-radius: 0.8rem;
-  margin: 0.5rem;
-  padding: 0.8rem;
-  color:whitesmoke;
-  font-size: 0.20rem;
+  cursor: pointer;
   text-align: center;
 }
 
