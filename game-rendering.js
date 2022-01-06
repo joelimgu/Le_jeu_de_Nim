@@ -1,6 +1,6 @@
 "use strict";
 // const MYAPPVARS = {}
-const game = [1, 3, 4];
+const game = [1, 3, 5];
 let updatedGame = [...game]; // this array keeps track of the state of the game
 const playerMoves = Array(game.length).fill(0);
 const gameHistory = {
@@ -61,6 +61,7 @@ function endGame() {
         document.getElementById("endMessage").innerText = "Player 2 wins!";
     }
     // alert(`Player ${playerPlaying} wins! 🥳`)
+    console.log("game ended");
 }
 function hasGameEnded() {
     // returns true if all the elements of the array are 0
@@ -132,6 +133,7 @@ function createLine(id) {
     @param ln number
  */
 function addChild(ln) {
+    console.log(`adding chind in ${ln}`);
     const lines = document.getElementById("playingfield");
     // @ts-ignore
     if (!Array.from(lines.children)[ln])
@@ -158,6 +160,8 @@ function addChild(ln) {
  */
 function createGame(game) {
     game.forEach((nbSticks, index) => {
+        console.log(nbSticks);
+        console.log("nb");
         for (let i = 0; i < nbSticks; i++)
             addChild(index);
     });
