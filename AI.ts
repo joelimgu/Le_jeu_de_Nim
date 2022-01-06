@@ -66,12 +66,14 @@ function randInterval(a: number ,b: number): number {
  * @return the optimal move to play
  */
 function findMove(game: number[]): {line: number, nbToRemove: number} {
+    console.log("searching solution for:")
+    console.log(game)
     let move: {line: number, nbToRemove: number} | undefined = undefined
     /*
 
      */
     for ( let l = 0; l < game.length; l++ ) {
-        for ( let n = 1; n <= game[l] + 1; n++ ) {
+        for ( let n = 1; n <= game[l] ; n++ ) {
             let aux = [...game] // create a copy of the array
             aux[l] -= n
             if ( theMoveIsOptimal(XORSum(aux)) ) {
@@ -90,9 +92,10 @@ function findMove(game: number[]): {line: number, nbToRemove: number} {
         while ( aux[randLine] === 0 ) {
             randLine = randInterval(0, aux.length - 1);
         }
+        console.log("made random move")
         move = {line: randLine, nbToRemove: randInterval(1, aux[randLine])}
     }
     return move
 }
 
-console.log(findMove([4,2,1]))
+// console.log(findMove([4,2,1]))
