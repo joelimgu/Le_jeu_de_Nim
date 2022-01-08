@@ -5,7 +5,7 @@ function play()
     document.getElementById("flash").style.display="none"; 
     game = tab
     updatedGame = [...game]
-    difficulty = document.getElementById("difficulte").value;
+    difficulty = /ia/g.test(document.URL) ? document.getElementById("difficulte").value : undefined;
     createGame(tab);
 }
 

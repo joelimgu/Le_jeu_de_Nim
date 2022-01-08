@@ -48,6 +48,7 @@ function theMoveIsOptimal(list: binNumber): boolean {
     }, true);
 }
 
+
 /**
  * Returns a non-cryptographic random number between a and b
  *
