@@ -1,6 +1,6 @@
 function play()
-{;
-    console.log(tab)
+{
+    
     if (tab.length != 0)
     {
     document.getElementById("set").style.display="none"; 
