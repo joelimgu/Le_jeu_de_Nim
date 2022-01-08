@@ -33,12 +33,8 @@ function startTurn() {
     document.getElementById('flash').style.removeProperty("animation")
     // @ts-ignore
     document.getElementById('flash').style.animation = "fadeinout .5s ease-in forwards;"
-    console.log("set timeout")
+
     setTimeout(() => {
-        console.log("timeoit1")
-    }, 200)
-    setTimeout(() => {
-        console.log("set to none")
         // @ts-ignore
         document.getElementById('flash').style.display = "none"
     }, 1000)
