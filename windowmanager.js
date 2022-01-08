@@ -1,5 +1,8 @@
 function play()
-{
+{;
+    console.log(tab)
+    if (tab.length != 0)
+    {
     document.getElementById("set").style.display="none"; 
     document.getElementById("interface").style.display="inline";
     document.getElementById("flash").style.display="none"; 
@@ -7,6 +10,10 @@ function play()
     updatedGame = [...game]
     difficulty = /ia/g.test(document.URL) ? document.getElementById("difficulte").value : undefined;
     createGame(tab);
+    }
+    else {
+        alert("Impossible de créer la terrain de Jeu."); 
+    }
 }
 
 function param()
