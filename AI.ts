@@ -63,11 +63,14 @@ function randInterval(a: number ,b: number): number {
 function playRandomMove(game: number[]) {
     console.log("played rand")
     let aux = [...game]
-    let randLine = randInterval(0, aux.length - 1);
+    let randLine = randInterval(0, aux.length - 1);;
     while ( aux[randLine] === 0 ) {
         randLine = randInterval(0, aux.length - 1);
     }
-    console.log("made random move")
+    while ( aux[randLine] === 0 ) {
+        randLine = randInterval(0, aux.length - 1);
+    }
+    console.log(`made random move: ${randLine}`)
     return {line: randLine, nbToRemove: randInterval(1, aux[randLine])}
 }
 

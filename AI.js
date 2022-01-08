@@ -53,10 +53,14 @@ function playRandomMove(game) {
     console.log("played rand");
     let aux = [...game];
     let randLine = randInterval(0, aux.length - 1);
+    ;
     while (aux[randLine] === 0) {
         randLine = randInterval(0, aux.length - 1);
     }
-    console.log("made random move");
+    while (aux[randLine] === 0) {
+        randLine = randInterval(0, aux.length - 1);
+    }
+    console.log(`made random move: ${randLine}`);
     return { line: randLine, nbToRemove: randInterval(1, aux[randLine]) };
 }
 function playEfficientMove(game) {
