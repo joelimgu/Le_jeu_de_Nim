@@ -61,7 +61,7 @@ function startTurn() {
         makeAIMove(updatedGame)
         startTurn()
         if ( hasGameEnded() ) {
-            endGame()
+            endGame(true)
         }
     }
 }
@@ -69,7 +69,7 @@ function startTurn() {
 /**
  * Ends the game
  */
-function endGame() {
+function endGame(isAIWinner: boolean = false) {
     let winingPlayer;
     // @ts-ignore
     document.getElementsByClassName("modal")[0].style.display = "inline-flex"
@@ -85,6 +85,9 @@ function endGame() {
         } else {
             winingPlayer = "Blue"
         }
+    }
+    if ( isAIWinner ) {
+        winingPlayer = "Computer"
     }
     // @ts-ignore
     document.getElementById("endMessage").innerText = `${winingPlayer} wins! 🥳`
