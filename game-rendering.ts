@@ -55,7 +55,7 @@ function startTurn() {
 
     if ( /ia/g.test(document.URL) ) { // if the AI should play
         makeAIMove(updatedGame)
-        startTurn()
+        // startTurn()
         if ( hasGameEnded() ) {
             endGame(true)
         }
@@ -66,6 +66,7 @@ function startTurn() {
  * Ends the game
  */
 function endGame(isAIWinner: boolean = false) {
+    console.log(`isAIWinner: ${isAIWinner}`)
     let winingPlayer;
     // @ts-ignore
     document.getElementsByClassName("modal")[0].style.display = "inline-flex"
@@ -115,7 +116,7 @@ function playTurn(element: any) {
         }, 500)
     }
     if ( hasGameEnded() ) {
-        endGame()
+        endGame(false)
     }
 }
 
