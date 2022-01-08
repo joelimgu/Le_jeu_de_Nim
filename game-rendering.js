@@ -72,7 +72,7 @@ function endGame(isAIWinner = false) {
     }
     else {
         if (/ia/g.test(document.URL)) {
-            winingPlayer = "Computer";
+            winingPlayer = "You";
         }
         else {
             winingPlayer = "Blue";
